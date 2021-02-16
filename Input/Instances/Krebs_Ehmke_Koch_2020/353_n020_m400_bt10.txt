@@ -1,0 +1,76 @@
+Name				353_n020_m400_bt10
+Number_of_Customers		20
+Number_of_Items			400
+Number_of_ItemTypes		10
+Number_of_Vehicles		7
+TimeWindows			1
+
+VEHICLE
+Mass_Capacity			12595
+CargoSpace_Length		60
+CargoSpace_Width		25
+CargoSpace_Height		30
+Wheelbase			48
+Max_Mass_FrontAxle		7100
+Max_Mass_RearAxle		11500
+Distance_FrontAxle_CargoSpace	4
+
+CUSTOMERS
+i		x		y		Demand		ReadyTime	DueDate		ServiceTime	DemandedMass	DemandedVolume
+0		35		35		0		0		1000		0		0		0
+1		57		69		21		74		280		10		515.05		3693
+2		15		78		21		762		1000		10		672.42		4413
+3		25		59		18		61		271		10		511.75		3635
+4		4		37		19		365		609		10		665.95		4718
+5		7		65		18		5		249		10		590.51		4188
+6		67		64		15		0		946		10		464.4		3212
+7		2		63		24		0		946		10		696.93		5086
+8		28		4		18		439		721		10		526.96		3723
+9		30		51		19		0		973		10		563.22		3985
+10		57		79		21		569		829		10		547.84		4221
+11		14		67		27		586		844		10		850.99		6052
+12		41		45		18		807		1000		10		579.4		3976
+13		27		77		17		117		397		10		515.96		3671
+14		58		43		22		190		434		10		668.96		4495
+15		25		0		21		139		397		10		624.98		4380
+16		59		59		23		822		1000		10		665.22		4524
+17		70		64		16		0		944		10		466.56		3246
+18		70		26		20		676		920		10		569.24		4067
+19		17		63		22		617		853		10		668.97		4658
+20		58		39		20		0		966		10		593.61		4409
+
+ITEMS
+Type		Length		Width		Height		Mass		Fragility	LoadBearingStrength
+Bt1		10		5		5		36.60		0		2.6860028
+Bt2		10		4		6		34.05		1		6.0733345
+Bt3		8		4		3		10.22		1		1.9486895
+Bt4		7		6		4		32		0		11.8072211
+Bt5		13		3		5		34.07		0		4.8543936
+Bt6		17		3		3		16.07		0		3.9989758
+Bt7		8		5		7		30.66		0		3.3172592
+Bt8		11		4		8		49.76		0		4.5557800
+Bt9		7		3		6		17.63		0		3.1436586
+Bt10		6		6		7		36.81		0		3.8520859
+
+DEMANDS PER CUSTOMER
+i	Type Quantity
+1	Bt1 2	Bt2 1	Bt3 5	Bt4 2	Bt5 2	Bt6 3	Bt7 1	Bt9 2	Bt10 3	
+2	Bt1 1	Bt3 2	Bt4 7	Bt6 1	Bt8 5	Bt9 3	Bt10 2	
+3	Bt1 1	Bt2 2	Bt3 3	Bt4 3	Bt5 2	Bt6 1	Bt7 3	Bt8 1	Bt9 1	Bt10 1	
+4	Bt2 2	Bt3 1	Bt4 1	Bt5 1	Bt6 1	Bt7 1	Bt8 7	Bt9 3	Bt10 2	
+5	Bt2 1	Bt3 3	Bt5 3	Bt6 1	Bt7 1	Bt8 5	Bt9 1	Bt10 3	
+6	Bt1 2	Bt3 1	Bt4 3	Bt5 2	Bt6 2	Bt7 2	Bt8 1	Bt10 2	
+7	Bt1 4	Bt2 1	Bt3 5	Bt4 2	Bt6 2	Bt7 2	Bt8 4	Bt9 2	Bt10 2	
+8	Bt1 1	Bt3 1	Bt4 3	Bt5 1	Bt6 2	Bt7 2	Bt8 3	Bt9 4	Bt10 1	
+9	Bt1 2	Bt2 2	Bt3 1	Bt5 3	Bt6 4	Bt8 2	Bt9 2	Bt10 3	
+10	Bt1 3	Bt2 2	Bt3 3	Bt4 1	Bt6 1	Bt7 5	Bt8 1	Bt9 5	
+11	Bt1 6	Bt2 3	Bt3 2	Bt4 2	Bt5 1	Bt6 3	Bt7 2	Bt8 2	Bt9 1	Bt10 5	
+12	Bt1 1	Bt2 3	Bt3 3	Bt4 1	Bt5 3	Bt6 1	Bt8 3	Bt10 3	
+13	Bt1 4	Bt3 2	Bt4 1	Bt5 2	Bt6 1	Bt7 2	Bt8 2	Bt9 2	Bt10 1	
+14	Bt1 1	Bt2 3	Bt3 2	Bt4 2	Bt5 4	Bt6 1	Bt8 3	Bt9 4	Bt10 2	
+15	Bt1 2	Bt2 3	Bt3 2	Bt4 3	Bt5 2	Bt6 2	Bt7 2	Bt8 2	Bt9 2	Bt10 1	
+16	Bt1 1	Bt2 2	Bt3 2	Bt4 2	Bt5 7	Bt6 3	Bt7 2	Bt9 1	Bt10 3	
+17	Bt1 5	Bt2 1	Bt3 3	Bt4 1	Bt5 2	Bt6 2	Bt8 1	Bt10 1	
+18	Bt1 1	Bt2 1	Bt3 1	Bt5 5	Bt6 2	Bt7 3	Bt8 1	Bt9 4	Bt10 2	
+19	Bt1 2	Bt2 3	Bt3 3	Bt4 1	Bt5 3	Bt6 1	Bt7 1	Bt8 2	Bt9 2	Bt10 4	
+20	Bt1 1	Bt2 1	Bt3 1	Bt4 2	Bt5 1	Bt7 6	Bt8 1	Bt9 4	Bt10 3	

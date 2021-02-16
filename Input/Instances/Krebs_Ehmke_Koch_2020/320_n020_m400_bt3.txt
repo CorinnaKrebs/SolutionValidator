@@ -1,0 +1,69 @@
+Name				320_n020_m400_bt3
+Number_of_Customers		20
+Number_of_Items			400
+Number_of_ItemTypes		3
+Number_of_Vehicles		10
+TimeWindows			1
+
+VEHICLE
+Mass_Capacity			12595
+CargoSpace_Length		60
+CargoSpace_Width		25
+CargoSpace_Height		30
+Wheelbase			48
+Max_Mass_FrontAxle		7100
+Max_Mass_RearAxle		11500
+Distance_FrontAxle_CargoSpace	4
+
+CUSTOMERS
+i		x		y		Demand		ReadyTime	DueDate		ServiceTime	DemandedMass	DemandedVolume
+0               35              35              0               0               230             0               0.00            0
+1               40              38              21              116             172             10              2106.90         4140
+2               56              80              21              0               170             10              2029.12         4260
+3               67              10              22              0               172             10              2092.69         4440
+4               55              39              28              66              196             10              2779.29         5640
+5               33              36              23              82              116             10              2413.57         4740
+6               12              27              23              100             166             10              1976.73         4380
+7               56              44              19              60              112             10              1770.32         3660
+8               66              18              24              71              101             10              2306.59         4740
+9               70              27              18              141             191             10              1658.88         3480
+10              56              72              16              110             178             10              1453.96         3240
+11              64              54              17              121             183             10              1792.80         3660
+12              40              11              15              30              162             10              1402.34         2820
+13              22              27              18              69              135             10              1802.49         3480
+14              22              29              20              90              118             10              1729.17         3780
+15              24              20              21              0               185             10              1897.46         4020
+16              39              57              20              89              145             10              2127.12         4200
+17              22              23              21              64              196             10              2133.84         4320
+18              29              73              20              0               181             10              2061.29         4080
+19              58              40              16              0               196             10              1654.42         3300
+20              28              65              17              34              100             10              1735.95         3600
+
+ITEMS
+Type		Length		Width		Height		Mass		Fragility	LoadBearingStrength
+Bt1		9		5		4		63.57		0		22.2025249
+Bt2		12		4		5		120.42		0		25.7764125
+Bt3		12		3		5		111.44		1		5.7305676
+
+DEMANDS PER CUSTOMER
+i	Type Quantity
+1	Bt1 6	Bt2 6	Bt3 9	
+2	Bt1 8	Bt2 8	Bt3 5	
+3	Bt1 9	Bt2 8	Bt3 5	
+4	Bt1 9	Bt2 10	Bt3 9	
+5	Bt1 5	Bt2 10	Bt3 8	
+6	Bt1 13	Bt2 4	Bt3 6	
+7	Bt1 8	Bt2 4	Bt3 7	
+8	Bt1 9	Bt2 7	Bt3 8	
+9	Bt1 8	Bt2 4	Bt3 6	
+10	Bt1 8	Bt2 6	Bt3 2	
+11	Bt1 4	Bt2 10	Bt3 3	
+12	Bt1 6	Bt2 2	Bt3 7	
+13	Bt1 5	Bt2 4	Bt3 9	
+14	Bt1 11	Bt2 3	Bt3 6	
+15	Bt1 10	Bt2 4	Bt3 7	
+16	Bt1 4	Bt2 10	Bt3 6	
+17	Bt1 6	Bt2 9	Bt3 6	
+18	Bt1 5	Bt2 8	Bt3 7	
+19	Bt1 4	Bt2 7	Bt3 5	
+20	Bt1 5	Bt2 9	Bt3 3	

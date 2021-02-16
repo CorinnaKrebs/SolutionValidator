@@ -1,0 +1,69 @@
+Name				319_n020_m400_bt3
+Number_of_Customers		20
+Number_of_Items			400
+Number_of_ItemTypes		3
+Number_of_Vehicles		12
+TimeWindows			1
+
+VEHICLE
+Mass_Capacity			12595
+CargoSpace_Length		60
+CargoSpace_Width		25
+CargoSpace_Height		30
+Wheelbase			48
+Max_Mass_FrontAxle		7100
+Max_Mass_RearAxle		11500
+Distance_FrontAxle_CargoSpace	4
+
+CUSTOMERS
+i		x		y		Demand		ReadyTime	DueDate		ServiceTime	DemandedMass	DemandedVolume
+0		35		35		0		0		230		0		0		0
+1		14		8		16		99		129		10		1886.04		7848
+2		29		14		24		77		109		10		3024.69		11430
+3		2		33		21		161		181		10		2637.74		11382
+4		30		70		21		87		117		10		3003.28		10938
+5		23		54		24		140		166		10		2777.62		12252
+6		9		36		22		123		145		10		3062.12		13092
+7		51		73		18		146		180		10		2405.11		9894
+8		21		61		26		168		194		10		3059.75		13542
+9		44		23		15		157		187		10		2028.29		8268
+10		40		10		23		33		69		10		3589.38		13842
+11		62		54		20		142		174		10		1950.7		9156
+12		28		63		21		62		98		10		2637.74		11382
+13		13		15		17		39		67		10		2691.55		10452
+14		24		50		18		169		201		10		2549.3		10032
+15		37		10		18		101		135		10		2549.3		10032
+16		40		39		18		41		85		10		1998.26		9240
+17		24		61		16		119		149		10		2308.48		9840
+18		29		2		19		47		79		10		2304.17		10572
+19		70		73		21		83		117		10		2282.33		10248
+20		70		14		22		80		106		10		3232.03		12990
+
+ITEMS
+Type		Length		Width		Height		Mass		Fragility	LoadBearingStrength
+Bt1		16		6		6		68.97		1		1.3681396
+Bt2		14		4		6		94.69		0		12.0624373
+Bt3		17		7		6		213.16		0		5.7151348
+
+DEMANDS PER CUSTOMER
+i	Type Quantity
+1	Bt1 4	Bt2 8	Bt3 4	
+2	Bt1 3	Bt2 14	Bt3 7	
+3	Bt1 7	Bt2 7	Bt3 7	
+4	Bt1 2	Bt2 10	Bt3 9	
+5	Bt1 8	Bt2 10	Bt3 6	
+6	Bt1 8	Bt2 4	Bt3 10	
+7	Bt1 5	Bt2 6	Bt3 7	
+8	Bt1 9	Bt2 10	Bt3 7	
+9	Bt1 4	Bt2 5	Bt3 6	
+10	Bt1 5	Bt2 5	Bt3 13	
+11	Bt1 7	Bt2 11	Bt3 2	
+12	Bt1 7	Bt2 7	Bt3 7	
+13	Bt1 4	Bt2 3	Bt3 10	
+14	Bt1 4	Bt2 6	Bt3 8	
+15	Bt1 4	Bt2 6	Bt3 8	
+16	Bt1 7	Bt2 7	Bt3 4	
+17	Bt1 6	Bt2 2	Bt3 8	
+18	Bt1 8	Bt2 5	Bt3 6	
+19	Bt1 7	Bt2 10	Bt3 4	
+20	Bt1 6	Bt2 5	Bt3 11	

@@ -1,0 +1,14 @@
+// Parameter for the Constraints
+alpha		0.75		// Support Parameter				in %
+lambda		5		// distance for reachability 			in dm
+balanced_part	0.7		// Part of balanced loading			in %
+
+// (De-)activation of Constraints
+rotation		1	// Rotation of Items		(0: n, 1: y)
+capacity		1	// Load Capacity		(0: n, 1: y)
+unloading_sequence	0	// Unloading Sequence		(0: n; 1: lifo, 	2: mlifo)
+vertical_stability	1	// Vertical Stability 		(0: n, 1: minimal support area,		2: robust stability (multiple overhanging),	3: robust stability 2 (top overhanging))
+stacking		1	// Stacking Constraints		(0: n, 1: fragility,	2: LBS Simplified,	3: LBS Complete)
+reachability		0	// Reachability			(0: n, 1: y)
+axle_weights		0	// Axle Weight Constraint 	(0: n, 1: y)
+balancing		0	// Balanced Loading  		(0: n, 1: y)
