@@ -7,8 +7,4 @@ Loading Constraints and formulas are described in
 by C. Krebs, J. Ehmke, H. Koch
 
 * Axle Weights in Combined Vehicle Routing and Container Loading Problems <br>
-<<<<<<< HEAD
 by C. Krebs, J. Ehmke
-=======
-by C. Krebs, J. Ehmke
->>>>>>> 8af950c07449d45c4c218f2d09f24afca5a3f03f
