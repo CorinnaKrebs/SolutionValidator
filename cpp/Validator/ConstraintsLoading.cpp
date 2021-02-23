@@ -43,7 +43,7 @@ bool ConstraintsLoading::checkLoadingConstraints(Solution& solution, const Const
 }
 
 
-bool ConstraintsLoading::checkVehicleWalls(const Item& item, const Vehicle& vehicle, const bool msg) {
+bool ConstraintsLoading::checkVehicleWalls(const Item& item, const Vehicle& vehicle, const bool& msg) {
 	if (item.max.x > vehicle.l || item.max.y > vehicle.w || item.max.z > vehicle.h) {
 		if (msg) cerr << "Overlapping of item " << item.id << " with Vehicle Walls." << endl;
 		return false;
@@ -51,7 +51,7 @@ bool ConstraintsLoading::checkVehicleWalls(const Item& item, const Vehicle& vehi
 	return true;
 }
 
-bool ConstraintsLoading::checkDimensions(const Item& item, const bool msg) {
+bool ConstraintsLoading::checkDimensions(const Item& item, const bool& msg) {
 	unsigned int l = item.max.x - item.min.x;
 	unsigned int w = item.max.y - item.min.y;
 	unsigned int h = item.max.z - item.min.z;
@@ -62,7 +62,7 @@ bool ConstraintsLoading::checkDimensions(const Item& item, const bool msg) {
 	return true;
 }
 
-bool ConstraintsLoading::checkMaxCoordinates(const Item& item, const bool msg) {
+bool ConstraintsLoading::checkMaxCoordinates(const Item& item, const bool& msg) {
 	if (item.max == Point(0, 0, 0)) {
 		if (msg) cerr << "Maximal Coordinates of item " << item.id << " is Origin. " << endl;
 		return false;
@@ -70,7 +70,7 @@ bool ConstraintsLoading::checkMaxCoordinates(const Item& item, const bool msg) {
 	return true;
 }
 
-bool ConstraintsLoading::checkOverlapping(Item& item, Tour& tour, const unsigned int tourEndPos, const Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkOverlapping(Item& item, Tour& tour, const unsigned int& tourEndPos, const Instance& instance, const bool& msg) {
 	for (size_t i = 0; i < tourEndPos; ++i) {
 		const auto item_id = tour.item_ids.at(i);
 		if (item_id == item.id) continue;
@@ -90,7 +90,7 @@ bool ConstraintsLoading::checkOverlapping(Item& item, Tour& tour, const unsigned
 }
 
 
-bool ConstraintsLoading::checkUnloadingSequence(Item& item, Tour& tour, const unsigned int tourEndPos, const UnloadingSequence& uSequence, Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkUnloadingSequence(Item& item, Tour& tour, const unsigned int& tourEndPos, const UnloadingSequence& uSequence, Instance& instance, const bool& msg) {
 	if (uSequence != UnloadingSequence::none) {
 		for (size_t i = 0; i < tourEndPos; ++i) {
 			const auto item_id = tour.item_ids.at(i);
@@ -121,7 +121,7 @@ bool ConstraintsLoading::checkUnloadingSequence(Item& item, Tour& tour, const un
 	return true;
 }
 
-bool ConstraintsLoading::checkReachability(Item& item, Tour& tour, const unsigned int lambda, const bool reachability, Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkReachability(Item& item, Tour& tour, const unsigned int& lambda, const bool& reachability, Instance& instance, const bool& msg) {
 	if (reachability) {
 		// Determine max X
 		unsigned int maxX = item.max.x;
@@ -147,7 +147,7 @@ bool ConstraintsLoading::checkReachability(Item& item, Tour& tour, const unsigne
 	return true;
 }
 
-bool ConstraintsLoading::checkStacking(Item& item, Tour& tour, const unsigned int tourEndPos, const Stacking& stacking, Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkStacking(Item& item, Tour& tour, const unsigned int& tourEndPos, const Stacking& stacking, Instance& instance, const bool& msg) {
 	if (stacking == Stacking::LBSComplete || stacking == Stacking::LBSSimple) {
 		unsigned int area = item.l * item.w;
 		item.load.reserve(area);
@@ -163,9 +163,9 @@ bool ConstraintsLoading::checkStacking(Item& item, Tour& tour, const unsigned in
 	return true;
 }
 
-bool ConstraintsLoading::checkFragility(Item& item, Tour& tour, const unsigned int tourEndPos, Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkFragility(Item& item, Tour& tour, const unsigned int& tourEndPos, Instance& instance, const bool& msg) {
 	for (size_t i = 0; i < tourEndPos; ++i) {
-		const auto item_id = tour.item_ids.at(i);
+		const auto& item_id = tour.item_ids.at(i);
 		auto& other = instance.items.at(item_id);
 		if (other.isBelow(item, true) && other.fragility && !item.fragility) {
 			if (msg) cerr << "Item " << item.id << " is placed on top of fragile item " << other.id << endl;
@@ -175,7 +175,7 @@ bool ConstraintsLoading::checkFragility(Item& item, Tour& tour, const unsigned i
 	return true;
 }
 
-bool ConstraintsLoading::checkVStability(Item& item, const VerticalStability& vStability, const float alpha, Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkVStability(Item& item, const VerticalStability& vStability, const float& alpha, Instance& instance, const bool& msg) {
 	if (item.min.z == 0) {
 		item.support = 1.0;
 		return true;
@@ -194,7 +194,7 @@ bool ConstraintsLoading::checkVStability(Item& item, const VerticalStability& vS
 	return true;
 }
 
-bool ConstraintsLoading::checkMinimalSupport(Item& item, const float alpha, Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkMinimalSupport(Item& item, const float& alpha, Instance& instance, const bool& msg) {
 	item.support = calcSupport(item, instance);
 
 	// Check Support
@@ -205,10 +205,10 @@ bool ConstraintsLoading::checkMinimalSupport(Item& item, const float alpha, Inst
 	return true;
 }
 
-bool ConstraintsLoading::checkMultipleOverhanging(Item& item, const float alpha, Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkMultipleOverhanging(Item& item, const float& alpha, Instance& instance, const bool& msg) {
 	double min_support = 1.0;
 	// Item a is one level
-	for (auto a_id : item.itemsBelow) {
+	for (const auto& a_id : item.itemsBelow) {
 		Item& aBelow = instance.items.at(a_id);
 		double supportArea = calcSupportArea(item, aBelow);
 
@@ -231,7 +231,7 @@ bool ConstraintsLoading::checkMultipleOverhanging(Item& item, const float alpha,
 	return true;
 }
 
-bool ConstraintsLoading::checkTopOverhanging(Item& item, const float alpha, Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkTopOverhanging(Item& item, const float& alpha, Instance& instance, const bool& msg) {
 	if (item.support == 0) {
 		item.support = calcSupport(item, instance);
 	}
@@ -243,7 +243,7 @@ bool ConstraintsLoading::checkTopOverhanging(Item& item, const float alpha, Inst
 	}
 	
 	// Other item can hang over current item
-	for (auto& otherId : item.itemsAbove) {
+	for (const auto& otherId : item.itemsAbove) {
 		auto& other = instance.items.at(otherId);		
 		if (other.isAbove(item, 1) && item.support < 0.99) {
 			if (msg) cerr << "Item " << item.id << " of Customer " << item.customer_id << " not enough supported." << endl;
@@ -253,6 +253,7 @@ bool ConstraintsLoading::checkTopOverhanging(Item& item, const float alpha, Inst
 
 	return true;
 }
+
 
 double ConstraintsLoading::calcSupport(Item& item, Instance& instance) {
 	// On Bottom
@@ -284,7 +285,7 @@ int ConstraintsLoading::calcSupportArea(const Item& current, const Item& other) 
 	return max(area, 0);
 }
 
-bool ConstraintsLoading::checkLBS(Item& below, Item& above, double weight, Instance& instance, const Stacking& stacking, const bool msg) {
+bool ConstraintsLoading::checkLBS(Item& below, Item& above, double weight, Instance& instance, const Stacking& stacking, const bool& msg) {
 	if (above.support == 0) {
 		above.support = calcSupport(above, instance);
 	}
@@ -332,7 +333,7 @@ bool ConstraintsLoading::checkLBS(Item& below, Item& above, double weight, Insta
 	return true;
 }
 
-bool ConstraintsLoading::checkLBSComplete(Item& item, Instance& instance, double load, const bool msg) {
+bool ConstraintsLoading::checkLBSComplete(Item& item, Instance& instance, double load, const bool& msg) {
 	for (auto& below_id : item.itemsBelow) {
 		Item& below = instance.items.at(below_id);
 
@@ -348,8 +349,8 @@ bool ConstraintsLoading::checkLBSComplete(Item& item, Instance& instance, double
 	return true;
 }
 
-bool ConstraintsLoading::checkLBSSimple(Item& item, Instance& instance, const bool msg) {
-	for (auto& below_id : item.itemsBelow) {
+bool ConstraintsLoading::checkLBSSimple(Item& item, Instance& instance, const bool& msg) {
+	for (const auto& below_id : item.itemsBelow) {
 		Item& below = instance.items.at(below_id);
 
 		// Call Calc_LBS with mass of above item
@@ -363,7 +364,7 @@ bool ConstraintsLoading::checkLBSSimple(Item& item, Instance& instance, const bo
 }
 
 
-bool ConstraintsLoading::checkAxleWeights(Item& item, Tour& tour, const bool axle_weights, const Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkAxleWeights(Item& item, Tour& tour, const bool& axle_weights, const Instance& instance, const bool& msg) {
 	if (axle_weights) {
 		const double g = 9.81;
 		long item_T = 0;
@@ -429,10 +430,10 @@ bool ConstraintsLoading::checkAxleWeights(Item& item, Tour& tour, const bool axl
 }
 
 
-bool ConstraintsLoading::checkBalancedLoading(Item& item, Tour& tour, const bool balanced_loading, const float balanced_part, const Instance& instance, const bool msg) {
+bool ConstraintsLoading::checkBalancedLoading(Item& item, Tour& tour, const bool& balanced_loading, const float& balanced_part, const Instance& instance, const bool& msg) {
 	if (balanced_loading) {
-		const double limit = instance.vehicle.D * balanced_part;
-		double W_half = instance.vehicle.w * 0.5;
+		const double limit = instance.vehicle.D * (double) balanced_part;
+		const double W_half = instance.vehicle.w * 0.5;
 
 		// In Left Half
 		if (item.max.y <= W_half) {
@@ -445,10 +446,10 @@ bool ConstraintsLoading::checkBalancedLoading(Item& item, Tour& tour, const bool
 		}
 		// Distribute Mass
 		else {
-			double width = !item.rotated ? item.w : item.l;
-			double left_area = (W_half - item.min.y) * width;
-			double part = left_area / ((double) item.w * item.l);
-			double mass_left = part * item.mass;
+			const double width = !item.rotated ? item.w : item.l;
+			const double left_area = (W_half - item.min.y) * width;
+			const double part = left_area / ((double) item.w * item.l);
+			const double mass_left = part * item.mass;
 			tour.mass_L += mass_left;
 			tour.mass_R += item.mass - mass_left;
 		}
@@ -468,7 +469,7 @@ bool ConstraintsLoading::checkBalancedLoading(Item& item, Tour& tour, const bool
 }
 
 
-void ConstraintsLoading::getRelevantItems(Item& item, Tour& tour, const unsigned int tourEndPos, Instance& instance) {
+void ConstraintsLoading::getRelevantItems(Item& item, Tour& tour, const unsigned int& tourEndPos, Instance& instance) {
 	for (size_t i = 0; i < tourEndPos; ++i) {
 		const auto other_id = tour.item_ids.at(i);
 		if (other_id == item.id) continue;
@@ -500,7 +501,7 @@ void ConstraintsLoading::getRelevantItems(Item& item, Tour& tour, const unsigned
 	
 }
 
-int ConstraintsLoading::getScaleFactor(const unsigned int vehicleH) {
+int ConstraintsLoading::getScaleFactor(const unsigned int& vehicleH) {
 	// Scale Lambda
 	unsigned int digits = log10(vehicleH) + 1;
 	return pow(10, digits - 2);	
