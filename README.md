@@ -44,18 +44,9 @@ boolean feasibleRouting = checkRoutingConstraints(solution, constraintSet, insta
 boolean feasibleLoading = checkLoadingConstraints(solution, constraintSet, instance);
 ```
 
-### Input Data: 
-Provide necessary data via Instance, ConstraintSet and Solution objects.
-
-### Check Methods: 
-* Input Data is provided as parameters to the methods. 
-* Return Value: Feasibility of the solution (feasible: true; infeasible: false). 
-* Check all Constraints defined in ConstraintSet: Use checkRoutingConstraints and checkLoadingConstraints
-* Check specific Constraint, see 
-    * C++: [ConstraintsLoading.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsLoading.cpp) and [ConstraintsRouting.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsRouting.cpp)
-    * Java: [Loading.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Loading.java) and [Routing.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Routing.java)
 
 ## Input Data
+Provide necessary data via Instance, ConstraintSet and Solution objects.
 
 ### Instance
 * Data: Information about vehicles, customers, items and demands
@@ -73,6 +64,14 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 * Usage of Solution file (see [our repository](https://github.com/CorinnaKrebs/Results))
 * Usage of Solution Class Constructor (see C++: [Solution.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Solution.h) or Java: [Solution.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/Solution.java))
 * Convert Data via Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java))
+
+## Check Methods: 
+* Input Data is provided as parameters to the methods. 
+* Return Value: Feasibility of the solution (feasible: true; infeasible: false). 
+* Check all Constraints defined in ConstraintSet: Use checkRoutingConstraints and checkLoadingConstraints
+* Check specific Constraint, see 
+    * C++: [ConstraintsLoading.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsLoading.cpp) and [ConstraintsRouting.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsRouting.cpp)
+    * Java: [Loading.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Loading.java) and [Routing.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Routing.java)
 
 # Literature
 Loading Constraints and formulas are described in
