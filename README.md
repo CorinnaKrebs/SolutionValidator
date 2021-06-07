@@ -14,14 +14,14 @@ The tool is implemented in C++ and in Java. Therefore, it can be used with eithe
 Only standard libraries are used.
 
 ## C++ Version
-### Language level: min. C++11
-### Software: Visual Studio
-### Build files: validator.sln and validator.vcxproj
+* Language level: min. C++11
+* Software: Visual Studio
+* Build files: validator.sln and validator.vcxproj
 
 ## Java Version
-### Language level: min. Java 8
-### Software: Java SDK, [Apache Maven Version 2.0](https://maven.apache.org/)
-### Build files: pom.xml
+* Language level: min. Java 8
+* Software: Java SDK, [Apache Maven Version 2.0](https://maven.apache.org/)
+* Build files: pom.xml
 
 # Usage
 
