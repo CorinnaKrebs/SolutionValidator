@@ -59,7 +59,7 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 
 ### Instance
 * Data: Information about vehicles, customers, items and demands
-* Usage of Converted Instances from Literature (see [this repository](https://github.com/CorinnaKrebs/Instances))
+* Usage of converted Instances from Literature (see [this repository](https://github.com/CorinnaKrebs/Instances))
 * Usage of Instance Class Constructor 
 
 ### Constraint Set
@@ -70,7 +70,7 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 
 ### Solution
 * Data: Objective Values, run time, number of iterations, set of routes and packing plans
-* Usage of Solution file 
+* Usage of Solution file (see [our repository](https://github.com/CorinnaKrebs/Results))
 * Usage of Solution Constructor 
 * Convert Data via Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java))
 
