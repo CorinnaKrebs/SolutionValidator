@@ -1,3 +1,4 @@
+#CI Status
 [![Java CI with Maven](https://github.com/CorinnaKrebs/SolutionValidator/actions/workflows/maven.yml/badge.svg)](https://github.com/CorinnaKrebs/SolutionValidator/actions/workflows/maven.yml)
 [![CPP CI with MSBuild](https://github.com/CorinnaKrebs/SolutionValidator/actions/workflows/msbuild.yml/badge.svg)](https://github.com/CorinnaKrebs/SolutionValidator/actions/workflows/msbuild.yml)
 
@@ -29,8 +30,6 @@ Only standard libraries are used.
 * Examples: C++: [Main.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Main.cpp), Java: [Main.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Main.java)
 
 ## Code Example
-To run the code, necessary data must be given. This includes three class objects: Instance, ConstraintSet and Solution.
-These are then used to call the checkConstraints methods. The return values indicate whether the solution is feasible (true) or not (false).
 
 ```Java
 // Necessary Data
@@ -43,35 +42,27 @@ bool feasibleRouting = checkRoutingConstraints(solution, constraintSet, instance
 bool feasibleLoading = checkLoadingConstraints(solution, constraintSet, instance);
 ```
 
-The following shows how to provide the three necessary objects:
+* Input Data: Provide necessary data via Instance, ConstraintSet and Solution objects.
+* Check Methods: The Input Data is provided as parameters to the methods. The return values indicate the feasibility of the solution (feasible: true; infeasible: false). The methods checkRoutingConstraints and checkLoadingConstraints check the solution w.r.t. all included loading or routing constraints according to the constraint set. Alternatively, the underlying methods can be called (see C++: Loading.cpp and Routing.cpp, Java: Loading.java and Routing.java). 
 
-## Instance
-Contains data concerning the vehicles, customers, items and demands.
+## Input Data
 
-### Option 1 -- Converted Instance:
-Some Instances from Literature are already converted to the required data format (see [this repository](https://github.com/CorinnaKrebs/Instances)).
+### Instance
+* Data: Information about vehicles, customers, items and demands.
+* Usage of Converted Instances from Literature (see [this repository](https://github.com/CorinnaKrebs/Instances)).
+* Usage of Instance Class Constructor 
 
-### Option 2 -- Use Constructor:
-Alternativly, use the class constructor to provide the necessary input data.
+### Constraint Set
+* Data: Included Loading Constraints and Parameters.
+* Read Constraint File ([see examples](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/Constraint_Sets))
+* Adapt Example and Read new File
+* Usage of ConstraintSet Class Constructor
 
-## Constraint Set
-Sets the included constraints and its parameters.
-
-### Option 1 -- Constraint Set File:
-Some constraint sets are already available (see [here](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/Constraint_Sets))
-or create a new file. Please, be aware of the order of the constraints and the given values.
-
-### Option 2 -- Use Class Constructor:
-Alternativly, use the constructor in Class ConstraintSet to provide the necessary input data.
-
-## Solution
-Contains data concerning the included constraints and its parameters.
-
-### Option 1 -- Solution File:
-Either read an existing solution file or create the file by using the Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java)
-
-### Option 2 -- Use Class Constructor:
-Alternativly, use the constructor in Class Solution to provide the necessary input data.
+### Solution
+* Data: Objective Values, run time, number of iterations, set of routes and packing plans
+* Usage of Solution file 
+* Usage of Solution Constructor 
+* Convert Data via Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java)
 
 # Literature
 Loading Constraints and formulas are described in
