@@ -1,4 +1,4 @@
-#CI Status
+# CI Status
 [![Java CI with Maven](https://github.com/CorinnaKrebs/SolutionValidator/actions/workflows/maven.yml/badge.svg)](https://github.com/CorinnaKrebs/SolutionValidator/actions/workflows/maven.yml)
 [![CPP CI with MSBuild](https://github.com/CorinnaKrebs/SolutionValidator/actions/workflows/msbuild.yml/badge.svg)](https://github.com/CorinnaKrebs/SolutionValidator/actions/workflows/msbuild.yml)
 
