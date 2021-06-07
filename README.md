@@ -71,7 +71,7 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 * Provide Data:
   * use Solution file (see [our repository](https://github.com/CorinnaKrebs/Results)) or
   * use Solution Class Constructor (see C++: [Solution.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Solution.h) or Java: [Solution.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/Solution.java)) or
-  * Convert Data via Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java)).
+  * convert Data via Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java)) and use the new file.
 
 ## Check Methods: 
 * Necessary Data: Input Data is shown above. Provided as parameters to the methods. 
