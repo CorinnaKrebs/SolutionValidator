@@ -23,7 +23,7 @@ Only standard libraries are used.
 
 ## Java Version
 * Language level: min. Java 11
-* Software: Java JRE, [Apache Maven Version 2.0](https://maven.apache.org/), IDE (e.g. [IntelliJ](https://www.jetbrains.com/de-de/idea/) or [Eclipse](https://www.eclipse.org/downloads/)
+* Software: Java JRE, [Apache Maven Version 2.0](https://maven.apache.org/), IDE (e.g. [IntelliJ](https://www.jetbrains.com/de-de/idea/) or [Eclipse](https://www.eclipse.org/downloads/))
 * Build files: [pom.xml](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/pom.xml)
 
 # Usage
