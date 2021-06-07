@@ -51,7 +51,7 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 * Input Data is provided as parameters to the methods. 
 * Return Value: Feasibility of the solution (feasible: true; infeasible: false). 
 * Check all Constraints defined in ConstraintSet: Use checkRoutingConstraints and checkLoadingConstraints
-* Check specific Constraint: 
+* Check specific Constraint, see 
     * C++: [ConstraintsLoading.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsLoading.cpp) and [ConstraintsRouting.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsRouting.cpp)
     * Java: [Loading.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Loading.java) and [Routing.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Routing.java)
 
