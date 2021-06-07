@@ -9,8 +9,8 @@
 Corinna Krebs
 
 # Introduction
-This solution validator checks the feasibility of a given solution with respect to various loading and routing constraints (see Section Constraints).
-It handles the combination of two optimization problems -- the vehicle routing problem (VRP) combined with the container loading (CLP), also known as the 2L-CVRP, 2L-VRPTW, 3L-CVRP and 3L-VRPTW.
+This solution validator checks the feasibility of a given solution with respect to various loading and routing constraints (see Code Documentation or Literature).
+It handles the combination of two optimization problems — the vehicle routing problem (VRP) combined with the container loading (CLP), also known as the 2L-CVRP, 2L-VRPTW, 3L-CVRP and 3L-VRPTW.
 
 # Requirements
 The tool is implemented in C++ and in Java. Therefore, it can be used with either of the two languages.
