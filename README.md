@@ -60,10 +60,11 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
   * Usage of Instance Class Constructor (see C++: [Instance.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Instance.h) or Java: [Instance.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/Instance.java)).
 
 ### Constraint Set
-* Data: Included Loading Constraints and Parameters
-* Read Constraint File ([see examples](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/Constraint_Sets))
-* Adapt an Example and read this new File
-* Usage of ConstraintSet Class Constructor (see C++: [ConstraintSet.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintSet.h) or Java: [ConstraintSet.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/ConstraintSet.java)).
+* Necessary Data: Included Loading Constraints and Parameters
+* Provide Data: 
+  * Read Constraint File ([see examples](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/Constraint_Sets)) or
+  * Adapt an Example and read this new File or
+  * Usage of ConstraintSet Class Constructor (see C++: [ConstraintSet.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintSet.h) or Java: [ConstraintSet.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/ConstraintSet.java)).
 
 ### Solution
 * Necessary Data: Objective Values, run time, number of iterations, set of routes and packing plans
