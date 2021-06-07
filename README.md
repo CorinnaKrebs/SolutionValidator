@@ -28,8 +28,8 @@ Only standard libraries are used.
 
 # Usage
 * Examples: 
-** C++: [Main.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Main.cpp)
-** Java: [Main.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Main.java)
+...C++: [Main.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Main.cpp)
+...Java: [Main.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Main.java)
 
 ## Code Example
 
@@ -44,8 +44,17 @@ bool feasibleRouting = checkRoutingConstraints(solution, constraintSet, instance
 bool feasibleLoading = checkLoadingConstraints(solution, constraintSet, instance);
 ```
 
-* Input Data: Provide necessary data via Instance, ConstraintSet and Solution objects.
-* Check Methods: The Input Data is provided as parameters to the methods. The return values indicate the feasibility of the solution (feasible: true; infeasible: false). The methods checkRoutingConstraints and checkLoadingConstraints check the solution w.r.t. all included loading or routing constraints according to the constraint set. Alternatively, the underlying methods can be called (see C++: Loading.cpp and Routing.cpp, Java: Loading.java and Routing.java). 
+### Input Data: 
+Provide necessary data via Instance, ConstraintSet and Solution objects.
+
+### Check Methods: 
+* Input Data is provided as parameters to the methods. 
+* Return Value: Feasibility of the solution (feasible: true; infeasible: false). 
+* Methods 
+...* Check All Constraints defined in ConstraintSet: Use checkRoutingConstraints and checkLoadingConstraints
+...* Check Specific Constraint: 
+......* C++: Loading.cpp and Routing.cpp
+......* Java: Loading.java and Routing.java). 
 
 ## Input Data
 
