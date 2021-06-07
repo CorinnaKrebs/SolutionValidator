@@ -13,12 +13,12 @@ Only standard libraries are used.
 
 ## C++ Version
 * Language level: min. C++11
-* Software: Visual Studio
+* Software: IDE (e.g. [Visual Studio](https://visualstudio.microsoft.com/de/)
 * Build files: [validator.sln](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Validator.sln), [validator.vcxproj](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Validator.vcxproj)
 
 ## Java Version
 * Language level: min. Java 8
-* Software: Java SDK, [Apache Maven Version 2.0](https://maven.apache.org/)
+* Software: Java JRE, [Apache Maven Version 2.0](https://maven.apache.org/), IDE (e.g. [IntelliJ](https://www.jetbrains.com/de-de/idea/) or [Eclipe](https://www.eclipse.org/downloads/)
 * Build files: [pom.xml](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/pom.xml)
 
 # Usage
