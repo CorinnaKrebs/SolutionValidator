@@ -27,7 +27,9 @@ Only standard libraries are used.
 * Build files: [pom.xml](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/pom.xml)
 
 # Usage
-Examples: C++: [Main.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Main.cpp), Java: [Main.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Main.java)
+* Examples: 
+** C++: [Main.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Main.cpp)
+** Java: [Main.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Main.java)
 
 ## Code Example
 
@@ -48,8 +50,8 @@ bool feasibleLoading = checkLoadingConstraints(solution, constraintSet, instance
 ## Input Data
 
 ### Instance
-* Data: Information about vehicles, customers, items and demands.
-* Usage of Converted Instances from Literature (see [this repository](https://github.com/CorinnaKrebs/Instances)).
+* Data: Information about vehicles, customers, items and demands
+* Usage of Converted Instances from Literature (see [this repository](https://github.com/CorinnaKrebs/Instances))
 * Usage of Instance Class Constructor 
 
 ### Constraint Set
