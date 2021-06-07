@@ -40,8 +40,8 @@ ConstraintSet constraintSet = Read.readConstraintFile("../Input/Constraint_Sets/
 Solution solution           = Read.readSolutionFile("../Input/PackPlan/001_n020_m200_bt3_P1_1.txt", instance);
 
 // Check Constraints
-bool feasibleRouting = checkRoutingConstraints(solution, constraintSet, instance);
-bool feasibleLoading = checkLoadingConstraints(solution, constraintSet, instance);
+boolean feasibleRouting = checkRoutingConstraints(solution, constraintSet, instance);
+boolean feasibleLoading = checkLoadingConstraints(solution, constraintSet, instance);
 ```
 
 ### Input Data: 
@@ -50,8 +50,8 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 ### Check Methods: 
 * Input Data is provided as parameters to the methods. 
 * Return Value: Feasibility of the solution (feasible: true; infeasible: false). 
-* Check All Constraints defined in ConstraintSet: Use checkRoutingConstraints and checkLoadingConstraints
-* Check Specific Constraint: 
+* Check all Constraints defined in ConstraintSet: Use checkRoutingConstraints and checkLoadingConstraints
+* Check specific Constraint: 
     * C++: [ConstraintsLoading.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsLoading.cpp) and [ConstraintsRouting.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsRouting.cpp)
     * Java: [Loading.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Loading.java) and [Routing.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Routing.java)
 
@@ -63,7 +63,7 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 * Usage of Instance Class Constructor 
 
 ### Constraint Set
-* Data: Included Loading Constraints and Parameters.
+* Data: Included Loading Constraints and Parameters
 * Read Constraint File ([see examples](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/Constraint_Sets))
 * Adapt Example and Read new File
 * Usage of ConstraintSet Class Constructor
