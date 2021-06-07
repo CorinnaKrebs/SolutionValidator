@@ -60,18 +60,18 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 ### Instance
 * Data: Information about vehicles, customers, items and demands
 * Usage of converted Instances from Literature (see [this repository](https://github.com/CorinnaKrebs/Instances))
-* Usage of Instance Class Constructor 
+* Usage of Instance Class Constructor (see C++: [Instance.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Instance.h) or Java: [Instance.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/Instance.java))
 
 ### Constraint Set
 * Data: Included Loading Constraints and Parameters
 * Read Constraint File ([see examples](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/Constraint_Sets))
 * Adapt an Example and read this new File
-* Usage of ConstraintSet Class Constructor
+* Usage of ConstraintSet Class Constructor (see C++: [ConstraintSet.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintSet.h) or Java: [ConstraintSet.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/ConstraintSet.java))
 
 ### Solution
 * Data: Objective Values, run time, number of iterations, set of routes and packing plans
 * Usage of Solution file (see [our repository](https://github.com/CorinnaKrebs/Results))
-* Usage of Solution Constructor 
+* Usage of Solution Class Constructor (see C++: [Solution.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Solution.h) or Java: [Solution.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/Solution.java))
 * Convert Data via Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java))
 
 # Literature
