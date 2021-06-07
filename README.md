@@ -56,21 +56,21 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 ### Instance
 * Necessary Data: Information about vehicles, customers, items and demands
 * Provide Data:
-  * Usage of converted Instances from Literature (see [this repository](https://github.com/CorinnaKrebs/Instances)) or
-  * Usage of Instance Class Constructor (see C++: [Instance.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Instance.h) or Java: [Instance.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/Instance.java)).
+  * use converted Instances from Literature (see [this repository](https://github.com/CorinnaKrebs/Instances)) or
+  * use Instance Class Constructor (see C++: [Instance.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Instance.h) or Java: [Instance.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/Instance.java)).
 
 ### Constraint Set
 * Necessary Data: Included Loading Constraints and Parameters
 * Provide Data: 
-  * Read Constraint File ([see examples](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/Constraint_Sets)) or
-  * Adapt an Example and read this new File or
-  * Usage of ConstraintSet Class Constructor (see C++: [ConstraintSet.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintSet.h) or Java: [ConstraintSet.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/ConstraintSet.java)).
+  * read Constraint File ([see examples](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/Constraint_Sets)) or
+  * adapt an Example and read this new File or
+  * use ConstraintSet Class Constructor (see C++: [ConstraintSet.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintSet.h) or Java: [ConstraintSet.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/ConstraintSet.java)).
 
 ### Solution
 * Necessary Data: Objective Values, run time, number of iterations, set of routes and packing plans
 * Provide Data:
-  * Usage of Solution file (see [our repository](https://github.com/CorinnaKrebs/Results)) or
-  * Usage of Solution Class Constructor (see C++: [Solution.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Solution.h) or Java: [Solution.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/Solution.java)) or
+  * use Solution file (see [our repository](https://github.com/CorinnaKrebs/Results)) or
+  * use Solution Class Constructor (see C++: [Solution.h](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Solution.h) or Java: [Solution.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/model/Solution.java)) or
   * Convert Data via Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java)).
 
 ## Check Methods: 
