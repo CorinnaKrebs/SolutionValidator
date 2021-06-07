@@ -5,7 +5,7 @@
 This solution validator checks the feasibility of a given solution with respect to various loading and routing constraints (see Section Constraints).
 It handles the combination of two optimization problems -- the vehicle routing problem (VRP) combined with the container loading (CLP), also known as the 2L-CVRP, 2L-VRPTW, 3L-CVRP and 3L-VRPTW.
 
-<br><br>Created by Corinna Krebs
+<br>Created by Corinna Krebs
 
 # Requirements
 The tool is implemented in C++ and in Java. Therefore, it can be used with either of the two languages.
@@ -14,12 +14,12 @@ Only standard libraries are used.
 ## C++ Version
 * Language level: min. C++11
 * Software: Visual Studio
-* Build files: [validator.sln](/cpp/Validator/validator.sln), [validator.vcxproj](/cpp/Validator/validator.vxcproj)
+* Build files: [validator.sln](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Validator.sln), [validator.vcxproj](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Validator.vcxproj)
 
 ## Java Version
 * Language level: min. Java 8
 * Software: Java SDK, [Apache Maven Version 2.0](https://maven.apache.org/)
-* Build files: [pom.xml](/java/pom.xml)
+* Build files: [pom.xml](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/pom.xml)
 
 # Usage
 
@@ -37,7 +37,7 @@ by C. Krebs, J. Ehmke, H. Koch
 * Axle Weights in Combined Vehicle Routing and Container Loading Problems <br>
 by C. Krebs, J. Ehmke
 
-* Vertical Stability Constraints in Combined Vehicle Routing and 3D Container Loading Problem
+* Vertical Stability Constraints in Combined Vehicle Routing and 3D Container Loading Problem <br>
 by C. Krebs, J. Ehmke
 
 
