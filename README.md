@@ -65,7 +65,7 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 ### Constraint Set
 * Data: Included Loading Constraints and Parameters
 * Read Constraint File ([see examples](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/Constraint_Sets))
-* Adapt Example and Read new File
+* Adapt an Example and read this new File
 * Usage of ConstraintSet Class Constructor
 
 ### Solution
