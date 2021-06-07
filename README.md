@@ -50,9 +50,8 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 ### Check Methods: 
 * Input Data is provided as parameters to the methods. 
 * Return Value: Feasibility of the solution (feasible: true; infeasible: false). 
-* Methods 
-  * Check All Constraints defined in ConstraintSet: Use checkRoutingConstraints and checkLoadingConstraints
-  * Check Specific Constraint: 
+* Check All Constraints defined in ConstraintSet: Use checkRoutingConstraints and checkLoadingConstraints
+* Check Specific Constraint: 
     * C++: [ConstraintsLoading.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsLoading.cpp) and [ConstraintsRouting.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/ConstraintsRouting.cpp)
     * Java: [Loading.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Loading.java) and [Routing.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/constraints/Routing.java)
 
@@ -73,7 +72,7 @@ Provide necessary data via Instance, ConstraintSet and Solution objects.
 * Data: Objective Values, run time, number of iterations, set of routes and packing plans
 * Usage of Solution file 
 * Usage of Solution Constructor 
-* Convert Data via Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java)
+* Convert Data via Write Class (see C++: [Write.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Write.cpp) or Java: [Write.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Write.java))
 
 # Literature
 Loading Constraints and formulas are described in
