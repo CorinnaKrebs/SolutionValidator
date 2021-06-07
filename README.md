@@ -32,6 +32,11 @@ Only standard libraries are used.
   * Java: [Main.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Main.java)
 
 ## Code Example
+In general, the program consists of two main parts: 
+* Provide Data (Instance, ConstraintSet and Solution)
+* Use Check Methods
+
+General hints are given below. For the concrete usage of the methods, please check the documentation of the code.
 
 ```Java
 // Necessary Data
