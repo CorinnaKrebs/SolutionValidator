@@ -27,7 +27,7 @@ Only standard libraries are used.
 * Build files: [pom.xml](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/pom.xml)
 
 # Usage
-* Examples: C++: [Main.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Main.cpp), Java: [Main.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Main.java)
+Examples: C++: [Main.cpp](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/cpp/Validator/Main.cpp), Java: [Main.java](https://github.com/CorinnaKrebs/SolutionValidator/blob/master/java/src/main/java/com/threedimensionalloadingcvrp/validator/Main.java)
 
 ## Code Example
 
