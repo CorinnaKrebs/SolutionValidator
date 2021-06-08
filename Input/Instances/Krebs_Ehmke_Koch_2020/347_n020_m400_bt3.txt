@@ -1,0 +1,69 @@
+Name				347_n020_m400_bt3
+Number_of_Customers		20
+Number_of_Items			400
+Number_of_ItemTypes		3
+Number_of_Vehicles		6
+TimeWindows			1
+
+VEHICLE
+Mass_Capacity			12595
+CargoSpace_Length		60
+CargoSpace_Width		25
+CargoSpace_Height		30
+Wheelbase			48
+Max_Mass_FrontAxle		7100
+Max_Mass_RearAxle		11500
+Distance_FrontAxle_CargoSpace	4
+
+CUSTOMERS
+i		x		y		Demand		ReadyTime	DueDate		ServiceTime	DemandedMass	DemandedVolume
+0		35		35		0		0		1000		0		0		0
+1		67		20		22		0		954		10		1864.6		5536
+2		25		46		19		385		597		10		1453.58		4276
+3		15		6		20		0		954		10		1888.82		5684
+4		23		8		20		58		340		10		1783.98		5244
+5		20		37		22		682		878		10		1839.28		5232
+6		3		68		20		0		944		10		1890.6		5296
+7		68		55		19		747		1000		10		1242.12		3784
+8		44		21		19		856		1000		10		1849.4		5344
+9		52		39		20		633		875		10		1467.68		4312
+10		39		24		18		0		253		10		1650.94		4732
+11		44		68		21		629		857		10		1613.72		4704
+12		33		15		19		0		198		10		1374.06		4140
+13		47		44		17		92		290		10		1609.74		4780
+14		28		0		24		695		909		10		1417.46		4404
+15		11		65		17		747		1000		10		1425.38		4204
+16		19		17		21		758		978		10		1718.56		5144
+17		66		48		21		570		832		10		1770.98		5364
+18		49		68		21		482		718		10		1402.26		4212
+19		35		75		19		0		950		10		1558.42		4716
+20		4		24		21		0		957		10		1561.3		4484
+
+ITEMS
+Type		Length		Width		Height		Mass		Fragility	LoadBearingStrength
+Bt1		16		4		4		66.52		0		3.8427958
+Bt2		6		2		3		14.10		1		1.9864631
+Bt3		14		7		4		146.04		0		7.4454924
+
+DEMANDS PER CUSTOMER
+i	Type Quantity
+1	Bt1 7	Bt2 6	Bt3 9	
+2	Bt1 5	Bt2 7	Bt3 7	
+3	Bt1 8	Bt2 3	Bt3 9	
+4	Bt1 6	Bt2 5	Bt3 9	
+5	Bt1 4	Bt2 8	Bt3 10	
+6	Bt1 3	Bt2 6	Bt3 11	
+7	Bt1 6	Bt2 8	Bt3 5	
+8	Bt1 5	Bt2 4	Bt3 10	
+9	Bt1 5	Bt2 8	Bt3 7	
+10	Bt1 4	Bt2 5	Bt3 9	
+11	Bt1 5	Bt2 8	Bt3 8	
+12	Bt1 6	Bt2 7	Bt3 6	
+13	Bt1 6	Bt2 3	Bt3 8	
+14	Bt1 8	Bt2 11	Bt3 5	
+15	Bt1 5	Bt2 5	Bt3 7	
+16	Bt1 7	Bt2 6	Bt3 8	
+17	Bt1 8	Bt2 5	Bt3 8	
+18	Bt1 6	Bt2 9	Bt3 6	
+19	Bt1 7	Bt2 5	Bt3 7	
+20	Bt1 4	Bt2 9	Bt3 8	
