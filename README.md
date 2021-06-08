@@ -51,7 +51,7 @@ boolean feasibleLoading = checkLoadingConstraints(solution, constraintSet, insta
 
 
 ## Input Data
-Provide necessary data via Instance, ConstraintSet and Solution objects.
+Provide necessary data via Instance, ConstraintSet and Solution objects. Exemplary files are available in [Input](https://github.com/CorinnaKrebs/SolutionValidator/tree/master/Input/) Folder.
 
 ### Instance
 * Necessary Data: Information about vehicles, customers, items and demands
