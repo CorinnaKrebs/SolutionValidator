@@ -2,7 +2,6 @@ package com.threedimensionalloadingcvrp.validator;
 
 import com.threedimensionalloadingcvrp.validator.model.*;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Locale;
