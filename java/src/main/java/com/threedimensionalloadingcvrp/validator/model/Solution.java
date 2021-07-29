@@ -40,5 +40,6 @@ public class Solution {
         this.total_travel_distance = 0;
         this.total_iterations = 0;
         this.calculation_time = 0;
+        this.total_travel_time = 0;
     }
 }
