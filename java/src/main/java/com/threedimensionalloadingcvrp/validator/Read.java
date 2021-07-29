@@ -443,7 +443,7 @@ public class Read {
                     tours.add(new Tour(r, customerIds, new ArrayList<>()));
                 }
             }
-            return new Solution(tours, totalTravelDistance, true, iterations, calculationTime);
+            return new Solution(tours, totalTravelDistance, 0, true, iterations, calculationTime);
 
         } catch (FileNotFoundException nfe) {
             System.err.println("Could not open Packing Plan file " + solutionPath);
