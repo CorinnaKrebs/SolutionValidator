@@ -4,8 +4,103 @@
 #include "Write.h"
 #include "Instance.h"
 #include "Solution.h"
+#include "ConstraintSet.h"
 
-void validator::Write::writePackingPlan(const std::string path, Solution& solution, Instance& instance, const int constraintNo, const int seed) {
+
+
+void validator::Write::instanceFile(const std::string path, Instance& instance) {
+	std::ofstream outputFile(path + instance.name + ".txt");
+
+	outputFile << "Name\t\t\t\t" << instance.name << std::endl;
+	outputFile << "Number_of_Customers\t\t" << instance.customers.size() - 1 << std::endl;
+	outputFile << "Number_of_Items\t\t\t"   << instance.items.size() - 1     << std::endl;
+	outputFile << "Number_of_ItemTypes\t\t" << instance.itemTypes.size() - 1 << std::endl;
+	outputFile << "Number_of_Vehicles\t\t"  << instance.v_max                << std::endl;
+	outputFile << "TimeWindows\t\t\t"       << instance.tw                   << std::endl;
+
+	outputFile << std::endl;
+
+	const Vehicle& vehicle = instance.vehicle;
+	outputFile << "VEHICLE" << std::endl;
+	outputFile << "Mass_Capacity\t\t\t"		<< vehicle.D << std::endl;
+	outputFile << "CargoSpace_Length\t\t"	<< vehicle.l << std::endl;
+	outputFile << "CargoSpace_Width\t\t"	<< vehicle.w << std::endl;
+	outputFile << "CargoSpace_Height\t\t"	<< vehicle.h << std::endl;
+	outputFile << "Wheelbase\t\t\t"			<< vehicle.wheelbase << std::endl;
+	outputFile << "Max_Mass_FrontAxle\t\t"	<< vehicle.lim_frontAxle << std::endl;
+	outputFile << "Max_Mass_RearAxle\t\t"	<< vehicle.lim_rearAxle  << std::endl;
+	outputFile << "Distance_FrontAxle_CargoSpace\t" << vehicle.l_FA_cargo << std::endl;
+
+	outputFile << std::endl;
+
+	outputFile << "CUSTOMERS" << std::endl;
+	outputFile << "i\t\tx\t\ty\t\tDemand\t\tReadyTime\tDueDate\t\tServiceTime\tDemandedMass\tDemandedVolume" << std::endl;
+	for (int i = 0; i < instance.customers.size(); ++i) {
+		const Customer& customer = instance.customers.at(i);
+		outputFile << i					<< "\t\t";
+		outputFile << customer.x		<< "\t\t";
+		outputFile << customer.y		<< "\t\t";
+		outputFile << customer.demand	<< "\t\t";
+		outputFile << customer.readyTime << "\t\t";
+		outputFile << customer.dueDate	 << "\t\t";
+		outputFile << customer.serviceTime  << "\t\t";
+		outputFile << customer.demandedMass << "\t\t";
+		outputFile << customer.demandedVolume << std::endl;
+	}
+
+	outputFile << std::endl;
+	
+	outputFile << "ITEMS" << std::endl;
+	outputFile << "Type\t\tLength\t\tWidth\t\tHeight\t\tMass\t\tFragility\t\tLoadBearingStrength" << std::endl;
+	for (int i = 1; i < instance.itemTypes.size(); ++i) {
+		const ItemType& type = instance.itemTypes.at(i);
+		outputFile << "Bt" << i << "\t\t" << type.l << "\t\t" << type.w << "\t\t" << type.h << "\t\t";
+		outputFile << type.mass			<< "\t\t";
+		outputFile << type.fragility	<< "\t\t\t";
+		outputFile << type.lbs			<< std::endl;
+	}
+
+	outputFile << std::endl;
+	
+	outputFile <<"DEMANDS PER CUSTOMER" << std::endl;
+	outputFile << "i\tType Quantity"	<< std::endl;
+	for (int i = 1; i < instance.customers.size(); ++i) {
+		const Customer& customer = instance.customers.at(i);
+		outputFile << i << "\t";
+		for (int j = 0; j < customer.demands.size(); ++j) {
+			const auto& demand = customer.demands.at(j);
+			outputFile << "Bt" << demand.first << " " << demand.second << "  ";
+		}
+		outputFile << std::endl;
+	}
+
+	outputFile.close();
+}
+
+void validator::Write::constraintFile(const std::string path, ConstraintSet& constraintSet, const int constraintNumber) {
+	std::ofstream outputFile(path + "P" + std::to_string(constraintNumber) + ".txt");
+	
+	outputFile << "// Parameter for the Constraints" << std::endl;
+	outputFile << "alpha\t\t"		<< constraintSet.alpha			<< "\t\t// Support Parameter\t\t\tin %"				<< std::endl;
+	outputFile << "lambda\t\t"		<< constraintSet.lambda			<< "\t\t// distance for reachability\t\tin dm"		<< std::endl;
+	outputFile << "balanced_part\t" << constraintSet.balanced_part	<< "\t\t// Part of balanced loading\t\tin %"		<< std::endl;
+
+	outputFile << std::endl;
+	outputFile << "// (De-)activation of Constraints" << std::endl;
+
+	outputFile << "rotation\t\t"			<< constraintSet.rotation					<< "\t// Rotation of Items\t\t(0: n, 1: y)"					<< std::endl;
+	outputFile << "capacity\t\t"			<< constraintSet.load_capacity				<< "\t// Load Capacity\t\t(0: n, 1: y)"						<< std::endl;
+	outputFile << "unloading_sequence\t"	<< static_cast<int>(constraintSet.uSequence	) << "\t// Unloading Sequence\t\t(0: n; 1: lifo,\t2: mlifo)"  << std::endl;
+	outputFile << "vertical_stability\t"	<< static_cast<int>(constraintSet.vStability) << "\t// Vertical Stability\t\t(0: n, 1: minimal support area,\t2: robust stability (multiple overhanging),\t3: robust stability 2 (top overhanging))" << std::endl;
+	outputFile << "stacking\t\t"			<< static_cast<int>(constraintSet.stacking)  << "\t// Stacking Constraints\t\t(0: n, 1: fragility,\t2: LBS Simplified,\t3: LBS Complete)" << std::endl;
+	outputFile << "reachability\t\t"		<< constraintSet.reachability				<< "\t// Reachability\t\t\t(0: n, 1: y)"				<< std::endl;
+	outputFile << "axle_weights\t\t"		<< constraintSet.axle_weights				<< "\t// Axle Weight Constraint\t(0: n, 1: y)"			<< std::endl;
+	outputFile << "balancing\t\t"			<< constraintSet.balanced_loading			<< "\t// Balanced Loading\t\t(0: n, 1: y)"				<< std::endl;
+
+	outputFile.close();
+}
+
+void validator::Write::solutionFile(const std::string path, Solution& solution, Instance& instance, const int constraintNo, const int seed) {
 	std::ofstream outputFile(path + instance.name + "_P" + std::to_string(constraintNo) + "_" + std::to_string(seed) + ".txt");
 	outputFile << "Name:\t\t\t\t" + instance.name << std::endl;
 	outputFile << "Problem:\t\t\t";

@@ -20,9 +20,6 @@ public class Solution {
     /** Total Travel Time */
     private double     total_travel_time;
 
-    /** Total Travel Time */
-    private double     total_travel_time;
-
     /** Feasibility of the Solution (1: feasible) */
     private boolean    feasible;
 
