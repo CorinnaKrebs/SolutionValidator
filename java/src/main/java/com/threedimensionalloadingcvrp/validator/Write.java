@@ -144,11 +144,7 @@ public class Write {
 
         int id = 1;
         for (final Tour tour : solution.getTours()) {
-            int noItems = 0;
-            for (int customerId : tour.getCustomer_ids()) {
-                Customer customer = instance.getCustomers().get(customerId);
-                noItems += customer.getItem_ids().size();
-            }
+            int noItems = tour.getItem_ids().size();
             writer.write(breakLine);
             writer.write("Tour_Id:\t\t\t" + id++ + "\n");
             writer.write("No_of_Customers:\t\t" + tour.getCustomer_ids().size() + "\n");
