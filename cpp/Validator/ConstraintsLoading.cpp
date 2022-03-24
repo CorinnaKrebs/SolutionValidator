@@ -84,7 +84,7 @@ bool validator::ConstraintsLoading::checkDimensions(const Item& item, const bool
 	unsigned int l = item.max.x - item.min.x;
 	unsigned int w = item.max.y - item.min.y;
 	unsigned int h = item.max.z - item.min.z;
-	if (l + w + h != item.l + item.w + item.h) {
+	if (l + w + h != item.dimension.l + item.dimension.w + item.dimension.h) {
 		if (msg) std::cerr << "Dimensions of " << item.id << " not fitting." << std::endl;
 		return false;
 	}
@@ -151,7 +151,7 @@ bool validator::ConstraintsLoading::checkUnloadingSequence(Item& item, Tour& tou
 
 bool validator::ConstraintsLoading::checkStacking(Item& item, Tour& tour, const unsigned int& tourEndPos, const Stacking& stacking, Instance& instance, const bool& msg) {
 	if (stacking == Stacking::LBSComplete || stacking == Stacking::LBSSimple) {
-		unsigned int area = item.l * item.w;
+		unsigned int area = item.dimension.l * item.dimension.w;
 		item.load.reserve(area);
 		fill(item.load.begin(), item.load.end(), 0);
 	}
@@ -220,7 +220,7 @@ bool validator::ConstraintsLoading::checkLBS(Item& below, Item& above, double we
 	const int supportArea = (maxY - minY) * (maxX - minX);
 
 	// Calculate part of support by above Item
-	double support_below = (double)supportArea / ((double)above.l * above.w);
+	double support_below = (double)supportArea / ((double)above.dimension.l * above.dimension.w);
 	support_below /= above.support;
 
 	// Calculate part of load
@@ -322,7 +322,7 @@ bool validator::ConstraintsLoading::checkMultipleOverhanging(Item& item, const f
 			if (bBelow.max.z >= aBelow.max.z && bBelow.min.z < aBelow.max.z)
 				supportArea += calcSupportArea(bBelow, item);
 			}
-			double support = supportArea / ((double) item.l * item.w);
+			double support = supportArea / ((double) item.dimension.l * item.dimension.w);
 			min_support = std::min(support, min_support);
 	}
 	if (min_support < alpha * 0.99) {
@@ -413,7 +413,7 @@ bool validator::ConstraintsLoading::checkStaticStabiltyMack(Item& item, const fl
 		return false;
 	}
 
-	const double support = supportArea / (item.l * item.w);
+	const double support = supportArea / (item.dimension.l * item.dimension.w);
 	if (support < alpha) {
 		if (msg) std::cerr << "Item " << item.id << " not enough supported." << std::endl;
 		return false;
@@ -436,7 +436,7 @@ void validator::ConstraintsLoading::calcItemSupport(Item& item, Instance& instan
 				supportArea += calcSupportArea(item, other);
 			}
 		}
-		item.support = supportArea / ((double)item.l * item.w);
+		item.support = supportArea / ((double)item.dimension.l * item.dimension.w);
 	}
 }
 
@@ -457,7 +457,7 @@ bool validator::ConstraintsLoading::checkAxleWeights(Item& item, Tour& tour, con
 
 		// Calculate Item's Force
 		const double item_F = item.mass * g;
-		const double length = !item.rotated ? item.l : item.w;
+		const double length = !item.rotated ? item.dimension.l : item.dimension.w;
 		double s = 0;
 
 		long force_rear_axle, force_front_axle, force_trailer_axle = 0;
@@ -531,9 +531,9 @@ bool validator::ConstraintsLoading::checkBalancedLoading(Item& item, Tour& tour,
 		}
 		// Distribute Mass
 		else {
-			const double width = !item.rotated ? item.w : item.l;
+			const double width = !item.rotated ? item.dimension.w : item.dimension.l;
 			const double left_area = (W_half - item.min.y) * width;
-			const double part = left_area / ((double) item.w * item.l);
+			const double part = left_area / ((double) item.dimension.w * item.dimension.l);
 			const double mass_left = part * item.mass;
 			tour.mass_L += mass_left;
 			tour.mass_R += item.mass - mass_left;

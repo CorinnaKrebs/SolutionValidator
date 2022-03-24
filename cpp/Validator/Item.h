@@ -1,6 +1,7 @@
 #pragma once
 #include "Point.h"
 #include "ItemType.h"
+#include "Dimension.h"
 #include <vector>
 #include <set>
 
@@ -35,17 +36,14 @@ namespace validator {
 		/** Rotation Flag (1: rotated (l = w, w = l)) */
 		bool		 rotated;
 
-		/** Length */
-		unsigned int l;
-
-		/** Width */
-		unsigned int w;
-
-		/** Height */
-		unsigned int h;
+		/* contains length, width, height*/
+		Dimension dimension;
 
 		/** Mass */
 		double mass;
+
+		/** Taxability */
+		float taxability;
 
 		/** Fragility flag (1: fragile) */
 		bool   fragility;

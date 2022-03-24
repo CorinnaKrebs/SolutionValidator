@@ -9,9 +9,7 @@ namespace validator {
 		this->customer_id = customer_id;
 		this->rotated = rotated;
 		this->type_id = type.id;
-		this->l = type.l;
-		this->w = type.w;
-		this->h = type.h;
+		this->dimension = type.dimension;
 		this->mass = type.mass;
 		this->fragility = type.fragility;
 		this->lbs = type.lbs;
@@ -19,20 +17,22 @@ namespace validator {
 		max = Point(0, 0, 0);
 		this->support = 0;
 		this->sumLoad = 0.0;
-		this->load = std::vector<double>(this->l * this->w, 0);
+		this->load = std::vector<double>(this->dimension.l * this->dimension.w, 0);
+		this->taxability = 0;
 	}
 
 	Item::Item() {
 		min = max = Point(0, 0, 0);
-		id = customer_id = l = w = h = mass = type_id = fragility = lbs = support = sumLoad = 0;
+		id = customer_id = mass = type_id = fragility = lbs = support = sumLoad = dimension.l = dimension.w = dimension.h = taxability = 0;
+		rotated = false;
 	}
 
 
 	void Item::setPosition(Point point) {
 		min = point;
-		unsigned int maxX = !rotated ? min.x + l : min.x + w;
-		unsigned int maxY = !rotated ? min.y + w : min.y + l;
-		unsigned int maxZ = min.z + h;
+		unsigned int maxX = !rotated ? min.x + dimension.l : min.x + dimension.w;
+		unsigned int maxY = !rotated ? min.y + dimension.w : min.y + dimension.l;
+		unsigned int maxZ = min.z + dimension.h;
 		max = Point(maxX, maxY, maxZ);
 	}
 

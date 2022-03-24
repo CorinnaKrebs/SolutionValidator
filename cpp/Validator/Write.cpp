@@ -54,7 +54,7 @@ void validator::Write::instanceFile(const std::string path, Instance& instance) 
 	outputFile << "Type\t\tLength\t\tWidth\t\tHeight\t\tMass\t\tFragility\t\tLoadBearingStrength" << std::endl;
 	for (int i = 1; i < instance.itemTypes.size(); ++i) {
 		const ItemType& type = instance.itemTypes.at(i);
-		outputFile << "Bt" << i << "\t\t" << type.l << "\t\t" << type.w << "\t\t" << type.h << "\t\t";
+		outputFile << "Bt" << i << "\t\t" << type.dimension.l << "\t\t" << type.dimension.w << "\t\t" << type.dimension.h << "\t\t";
 		outputFile << type.mass			<< "\t\t";
 		outputFile << type.fragility	<< "\t\t\t";
 		outputFile << type.lbs			<< std::endl;
@@ -141,7 +141,7 @@ void validator::Write::solutionFile(const std::string path, Solution& solution, 
 			for (const auto& itemId : tour.item_ids) {
 				auto& item = instance.items.at(itemId);
 				outputFile << std::to_string(item.customer_id) << "\t" << itemId << "\t" << std::to_string(item.type_id) << "\t" << std::to_string(item.rotated) << "\t";
-				outputFile << std::to_string(item.min.x) << "\t" << std::to_string(item.min.y) << "\t" << std::to_string(item.min.z) << "\t" << std::to_string(item.l) << "\t" << std::to_string(item.w) << "\t" << std::to_string(item.h) << "\t";
+				outputFile << std::to_string(item.min.x) << "\t" << std::to_string(item.min.y) << "\t" << std::to_string(item.min.z) << "\t" << std::to_string(item.dimension.l) << "\t" << std::to_string(item.dimension.w) << "\t" << std::to_string(item.dimension.h) << "\t";
 				outputFile << std::fixed << std::setprecision(2) << item.mass << "\t" << std::to_string(item.fragility) << "\t\t";
 				outputFile << std::fixed << std::setprecision(6) << item.lbs << std::endl;
 			}

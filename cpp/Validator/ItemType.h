@@ -1,4 +1,5 @@
 #pragma once
+#include "Dimension.h"
 
 namespace validator {
 
@@ -12,25 +13,22 @@ namespace validator {
 		/**
 		* Instantiates a new Item type.
 		*/
-		ItemType() : id(0), l(0), w(0), h(0), mass(0), fragility(0), lbs(0) {}
+		ItemType() : id(0), dimension(0, 0, 0), mass(0), fragility(0), lbs(0) {}
 
 		ItemType(const unsigned id, const unsigned int l, const unsigned int w, const unsigned int h, const double mass, const bool fragility, const double lbs)
-			: id(id), l(l), w(w), h(h), mass(mass), fragility(fragility), lbs(lbs) {}
+			: id(id), dimension(l, w, h), mass(mass), fragility(fragility), lbs(lbs), taxability(0) {}
 
 		/** Unique Id */
 		const unsigned int id;
 
-		/** Length */
-		const unsigned int l;
-
-		/** Width */
-		const unsigned int w;
-
-		/** Height */
-		const unsigned int h;
+		/* contains length, width, height*/
+		Dimension dimension;
 
 		/** Mass */
 		const double mass;
+
+		/** Taxability */
+		float taxability;
 
 		/** Fragility flag, (1: fragile) */
 		const bool fragility;

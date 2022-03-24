@@ -36,9 +36,6 @@
     <ClCompile Include="Write.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Main3.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConstraintSet.h">
@@ -78,6 +75,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Write.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Dimension.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
