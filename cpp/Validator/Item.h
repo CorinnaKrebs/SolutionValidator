@@ -42,8 +42,8 @@ namespace validator {
 		/** Mass */
 		double mass;
 
-		/** Taxability */
-		float taxability;
+		/** Volume */
+		unsigned int volume;
 
 		/** Fragility flag (1: fragile) */
 		bool   fragility;

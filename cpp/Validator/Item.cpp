@@ -18,12 +18,12 @@ namespace validator {
 		this->support = 0;
 		this->sumLoad = 0.0;
 		this->load = std::vector<double>(this->dimension.l * this->dimension.w, 0);
-		this->taxability = 0;
+		this->volume = dimension.l * dimension.w * dimension.h;
 	}
 
 	Item::Item() {
 		min = max = Point(0, 0, 0);
-		id = customer_id = mass = type_id = fragility = lbs = support = sumLoad = dimension.l = dimension.w = dimension.h = taxability = 0;
+		id = customer_id = mass = type_id = fragility = lbs = support = sumLoad = dimension.l = dimension.w = dimension.h = volume = 0;
 		rotated = false;
 	}
 
