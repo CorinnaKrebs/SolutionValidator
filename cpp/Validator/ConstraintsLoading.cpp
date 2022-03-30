@@ -47,12 +47,12 @@ void validator::ConstraintsLoading::getRelevantItems(Item& item, Tour& tour, con
 		auto& other = instance.items.at(other_id);
 		// Get direct supporting items
 		if (other.isBelow(item, 1)) {
-			item.itemsBelow.insert(other.id);
-			other.itemsAbove.insert(item.id);
+			item.itemsBelow.emplace(other.id);
+			other.itemsAbove.emplace(item.id);
 		}
 		if (other.isBehind(item)) {
-			item.itemsBehind.insert(other.id);
-			other.itemsFront.insert(item.id);
+			item.itemsBehind.emplace(other.id);
+			other.itemsFront.emplace(item.id);
 		}
 	}
 	// Add indirect supporting items
@@ -63,8 +63,8 @@ void validator::ConstraintsLoading::getRelevantItems(Item& item, Tour& tour, con
 			for (auto& indirect_id : directItem.itemsBelow) {
 				auto& indirectItem = instance.items.at(indirect_id);
 				if (indirectItem.isBelow(item, 0)) {
-					item.itemsBelow.insert(indirect_id);
-					indirectItem.itemsAbove.insert(item.id);
+					item.itemsBelow.emplace(indirect_id);
+					indirectItem.itemsAbove.emplace(item.id);
 				}
 			}
 		}

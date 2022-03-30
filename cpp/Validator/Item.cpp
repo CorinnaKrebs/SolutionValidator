@@ -22,8 +22,7 @@ namespace validator {
 
 	Item::Item() {
 		min = max = Point(0, 0, 0);
-		id = customer_id = mass = type_id = fragility = lbs = support = sumLoad = dimension.l = dimension.w = dimension.h = dimension.volume = 0;
-		rotated = false;
+		id = customer_id = mass = type_id = fragility = lbs = support = sumLoad = dimension.l = dimension.w = dimension.h = 0;
 	}
 
 

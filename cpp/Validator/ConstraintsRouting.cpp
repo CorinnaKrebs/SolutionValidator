@@ -139,7 +139,7 @@ bool validator::ConstraintsRouting::checkDispatchedCustomers(const Solution& sol
 				return false;
 			}
 
-			dispatched_customers.insert(customer_id);
+			dispatched_customers.emplace(customer_id);
 		}
 	}
 
