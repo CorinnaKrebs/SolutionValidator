@@ -219,7 +219,7 @@ namespace validator {
 	}
 
 
-	ConstraintSet Read::readConstraintFile(std::string constraintPath) {
+	ConstraintSet Read::readConstraintFile(const std::string constraintPath, const bool hasTimeWindows) {
 		std::ifstream inputFile(constraintPath, std::ifstream::in);
 		std::istringstream	iss;
 		std::string			line, var;
@@ -229,7 +229,7 @@ namespace validator {
 			exit(-1);
 		}
 
-		bool rotation, load_capacity, reachability, axle_weights, balanced_loading;
+		bool rotation, load_capacity, reachability, axle_weights, balanced_loading, timeWindows = hasTimeWindows, splitDelivery = false;
 		unsigned int uSequence, vStability, stacking, lambda;
 		float alpha, balanced_part;
 
@@ -271,8 +271,16 @@ namespace validator {
 		getline(inputFile, line); iss.clear(); iss.str(line); iss >> var;
 		if (var == "balancing")				iss >> balanced_loading;
 
+		getline(inputFile, line); iss.clear(); iss.str(line); iss >> var;
+		if (var == "TimeWindows")			iss >> timeWindows;
+
+		getline(inputFile, line); iss.clear(); iss.str(line); iss >> var;
+		if (var == "SplitDelivery")			iss >> splitDelivery;
+
+
+
 		return ConstraintSet(rotation, load_capacity, static_cast<UnloadingSequence>(uSequence), static_cast<VerticalStability>(vStability),
-			static_cast<Stacking>(stacking), reachability, axle_weights, balanced_loading, alpha, lambda, balanced_part);
+			static_cast<Stacking>(stacking), reachability, axle_weights, balanced_loading, alpha, lambda, balanced_part, timeWindows, splitDelivery);
 	}
 
 	Solution Read::readSolutionFile(const std::string solutionPath, Instance& instance) {

@@ -33,12 +33,13 @@ namespace validator {
 		/**
 		* Check if all time windows are met.
 		*
-		* @param solution the solution
-		* @param instance the instance
-		* @param msg      optional output messages
+		* @param solution	 the solution
+		* @param timeWindows timeWindows to check
+		* @param instance	 the instance
+		* @param msg		 optional output messages
 		* @return feasibility of time windows.
 		*/
-		static bool checkTimeWindows(const Solution& solution, const Instance& instance, const bool& msg);
+		static bool checkTimeWindows(const Solution& solution, const bool timeWindows, const Instance& instance, const bool& msg);
 
 		/**
 		* Calculate the current time after each customer.
@@ -64,14 +65,15 @@ namespace validator {
 		static bool checkCapacities(const Solution& solution, const bool load_capacity, const Instance& instance, const bool& msg);
 
 		/**
-		* Check if all customers are dispatched and visited only once.
+		* Check if all customers are dispatched.
 		*
 		* @param solution the solution
+		* @param split    split deliveries
 		* @param instance the instance
 		* @param msg      optional output messages
-		* @return true if all customers are visited once.
+		* @return true if all customers are visited.
 		*/
-		static bool checkDispatchedCustomers(const Solution& solution, const Instance& instance, const bool& msg);
+		static bool checkDispatchedCustomers(const Solution& solution, const bool split, const Instance& instance, const bool& msg);
 
 		/**
 		* Check if all items of all customers are dispatched.

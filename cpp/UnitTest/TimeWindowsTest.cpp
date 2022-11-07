@@ -51,7 +51,7 @@ namespace RoutingConstraints {
 			double expected = depot_ST + distance01 + time_Diff + cust_ST;
 			Assert::AreEqual(true, ConstraintsRouting::checkTimeWindowCustomer(1, 0, time, instance, false));
 			Assert::AreEqual(expected, time);
-			Assert::AreEqual(true, ConstraintsRouting::checkTimeWindows(solution, instance, false));
+			Assert::AreEqual(true, ConstraintsRouting::checkTimeWindows(solution, true, instance, false));
 
 
 			// Add another customer and re-check Calculation
@@ -96,7 +96,7 @@ namespace RoutingConstraints {
 			Solution solution(tours);
 
 			// Test
-			Assert::AreEqual(false, ConstraintsRouting::checkTimeWindows(solution, instance, false));
+			Assert::AreEqual(false, ConstraintsRouting::checkTimeWindows(solution, true, instance, false));
 		}
 	};
 }

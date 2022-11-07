@@ -10,10 +10,13 @@ namespace validator {
 	*/
 	class ConstraintSet {
 	public:
-		ConstraintSet(const bool rotation, const bool load_capacity, const UnloadingSequence& uSequence, const VerticalStability& vStability, const Stacking& stacking, const bool reachability, const bool axle_weights, const bool balanced_loading, const float alpha, const unsigned int lambda, const float balanced_part)
-			: rotation(rotation), load_capacity(load_capacity), uSequence(uSequence), vStability(vStability), stacking(stacking), reachability(reachability), axle_weights(axle_weights), balanced_loading(balanced_loading), alpha(alpha), lambda(lambda), balanced_part(balanced_part) {}
+		ConstraintSet(const bool rotation, const bool load_capacity, const UnloadingSequence& uSequence, const VerticalStability& vStability, const Stacking& stacking, const bool reachability, const bool axle_weights, const bool balanced_loading, 
+			const float alpha, const unsigned int lambda, const float balanced_part, const bool time_windows, const bool split_delivery)
+			: rotation(rotation), load_capacity(load_capacity), uSequence(uSequence), vStability(vStability), stacking(stacking), reachability(reachability), axle_weights(axle_weights), balanced_loading(balanced_loading), 
+			alpha(alpha), lambda(lambda), balanced_part(balanced_part), time_windows(time_windows), split_delivery(split_delivery) {}
 
-		// Constraints
+
+		// Loading Constraints
 		/** Consideration of Rotation along length/width plane */
 		bool rotation;
 
@@ -48,5 +51,12 @@ namespace validator {
 
 		/** Balanced Loading Parameter */
 		const float		   balanced_part;
+
+		// Routing Constraints
+		/** Consideration of AxTime Windows*/
+		bool time_windows;
+
+		/** Consideration of Split Deliveries */
+		bool split_delivery;
 	};
 }

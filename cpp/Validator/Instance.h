@@ -23,9 +23,10 @@ namespace validator {
 		* @param customers the list with all customers
 		* @param v_max     the maximal number of available vehicles
 		* @param tw        the consideration of time windows
+		* @param tw        the consideration of split deliveries
 		*/
 		Instance(const std::string name, const Vehicle& vehicle, const std::vector<ItemType>& itemTypes, const std::vector<Customer>& customers, const unsigned int v_max, const bool tw)
-			: name(name), vehicle(vehicle), itemTypes(itemTypes), customers(customers), v_max(v_max), tw(tw) {}
+			: name(name), vehicle(vehicle), itemTypes(itemTypes), customers(customers), v_max(v_max), tw(tw){}
 
 		/** the instance name */
 		const std::string			name;

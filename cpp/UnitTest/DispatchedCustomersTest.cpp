@@ -36,7 +36,8 @@ namespace RoutingConstraints {
 			Solution solution(tours);
 
 			// Test
-			Assert::AreEqual(false, ConstraintsRouting::checkDispatchedCustomers(solution, instance, false));
+			Assert::AreEqual(false, ConstraintsRouting::checkDispatchedCustomers(solution, false, instance, false));
+			Assert::AreEqual(true, ConstraintsRouting::checkDispatchedCustomers(solution, true, instance, false));
 		}
 
 		TEST_METHOD(Customer1NotDispatched) {
@@ -63,7 +64,8 @@ namespace RoutingConstraints {
 			Solution solution(tours);
 
 			// Test
-			Assert::AreEqual(false, ConstraintsRouting::checkDispatchedCustomers(solution, instance, false));
+			Assert::AreEqual(false, ConstraintsRouting::checkDispatchedCustomers(solution, false, instance, false));
+			Assert::AreEqual(false, ConstraintsRouting::checkDispatchedCustomers(solution, true, instance, false));
 		}
 
 		TEST_METHOD(TourOnlyDepot) {
@@ -92,7 +94,7 @@ namespace RoutingConstraints {
 			Solution solution(tours);
 
 			// Test
-			Assert::AreEqual(false, ConstraintsRouting::checkDispatchedCustomers(solution, instance, false));
+			Assert::AreEqual(false, ConstraintsRouting::checkDispatchedCustomers(solution, false, instance, false));
 		}
 
 		TEST_METHOD(Feasible) {
@@ -119,7 +121,7 @@ namespace RoutingConstraints {
 			Solution solution(tours);
 
 			// Test
-			Assert::AreEqual(true, ConstraintsRouting::checkDispatchedCustomers(solution, instance, false));
+			Assert::AreEqual(true, ConstraintsRouting::checkDispatchedCustomers(solution, false, instance, false));
 		}
 	};
 }

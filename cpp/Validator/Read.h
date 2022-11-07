@@ -35,9 +35,10 @@ namespace validator {
 		*
 		*
 		* @param constraintPath the path to the constraint file.
+		* @param hasTimeWindows the problem contains Time Windows.
 		* @return the constraint set
 		*/
-		static ConstraintSet readConstraintFile(const std::string constraintPath);
+		static ConstraintSet readConstraintFile(const std::string constraintPath, const bool hasTimeWindows);
 
 	private:
 

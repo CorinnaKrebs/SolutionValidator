@@ -52,7 +52,7 @@ void validator::Write::instanceFile(const std::string path, Instance& instance) 
 	
 	outputFile << "ITEMS" << std::endl;
 	outputFile << "Type\t\tLength\t\tWidth\t\tHeight\t\tMass\t\tFragility\t\tLoadBearingStrength" << std::endl;
-	for (int i = 1; i < instance.itemTypes.size(); ++i) {
+	for (size_t i = 1; i < instance.itemTypes.size(); ++i) {
 		const ItemType& type = instance.itemTypes.at(i);
 		outputFile << "Bt" << i << "\t\t" << type.dimension.l << "\t\t" << type.dimension.w << "\t\t" << type.dimension.h << "\t\t";
 		outputFile << type.mass			<< "\t\t";

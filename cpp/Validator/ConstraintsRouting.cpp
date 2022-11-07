@@ -4,9 +4,9 @@
 #include <algorithm>
 
 bool validator::ConstraintsRouting::checkRoutingConstraints(Solution& solution, const ConstraintSet& cSet, Instance& instance, const bool& msg) {
-	if (!checkTimeWindows(solution, instance, msg)
+	if (!checkTimeWindows(solution, cSet.time_windows, instance, msg)
 		|| !checkCapacities(solution, cSet.load_capacity, instance, msg)
-		|| !checkDispatchedCustomers(solution, instance, msg)
+		|| !checkDispatchedCustomers(solution, cSet.split_delivery, instance, msg)
 		|| !checkDispatchedItems(solution, instance, msg)
 		|| !checkUsedVehicles(solution, instance, msg)
 		|| !checkCost(solution, instance, msg)) {
@@ -26,7 +26,7 @@ bool validator::ConstraintsRouting::checkCost(const Solution& solution, const In
 			tour.customer_ids.end());
 		
 		int idI = 0;
-		for (int idJ : tour.customer_ids) {
+		for (auto& idJ : tour.customer_ids) {
 			Customer customerI = instance.customers.at(idI);
 			Customer customerJ = instance.customers.at(idJ);
 			totalCost += calcEuclideanDistance(customerI.x, customerI.y, customerJ.x, customerJ.y);
@@ -45,8 +45,8 @@ bool validator::ConstraintsRouting::checkCost(const Solution& solution, const In
 }
 
 
-bool validator::ConstraintsRouting::checkTimeWindows(const Solution& solution, const Instance& instance, const bool& msg) {
-	if (instance.tw) {
+bool validator::ConstraintsRouting::checkTimeWindows(const Solution& solution, const bool timeWindows, const Instance& instance, const bool& msg) {
+	if (timeWindows) {
 		auto& depot = instance.customers.at(0);
 		for (auto& tour : solution.tours) {
 			unsigned int customer_last_id = 0;
@@ -121,8 +121,8 @@ bool validator::ConstraintsRouting::checkCapacities(const Solution& solution, co
 }
 
 
-bool validator::ConstraintsRouting::checkDispatchedCustomers(const Solution& solution, const Instance& instance, const bool& msg) {
-	// Constraint: Each customer is visited exactly once;
+bool validator::ConstraintsRouting::checkDispatchedCustomers(const Solution& solution, const bool split, const Instance& instance, const bool& msg) {
+	// Without Split Deliveries: Each customer is visited exactly once;
 	// Constraint: Each route visits at least one customer;
 
 	std::set<unsigned int> dispatched_customers;
@@ -135,11 +135,14 @@ bool validator::ConstraintsRouting::checkDispatchedCustomers(const Solution& sol
 
 		for (const auto customer_id : tour.customer_ids) {
 			if (dispatched_customers.find(customer_id) != dispatched_customers.end()) {
-				if (msg) std::cerr << "Customer " << customer_id << " dispatched several times." << std::endl;
-				return false;
+				if (!split) {
+					if (msg) std::cerr << "Customer " << customer_id << " dispatched several times." << std::endl;
+					return false;
+				}
 			}
-
-			dispatched_customers.emplace(customer_id);
+			else {
+				dispatched_customers.emplace(customer_id);
+			}
 		}
 	}
 
@@ -153,22 +156,24 @@ bool validator::ConstraintsRouting::checkDispatchedCustomers(const Solution& sol
 
 
 bool validator::ConstraintsRouting::checkDispatchedItems(const Solution& solution, const Instance& instance, const bool& msg) {
-	for (const auto& tour : solution.tours) {
-		for (unsigned int customer_id : tour.customer_ids) {
-			auto& customer = instance.customers.at(customer_id);
-			for (auto& demand : customer.demands) {
-				unsigned int typeId = demand.first;
-				auto qt = count_if(tour.item_ids.begin(), tour.item_ids.end(), [typeId, customer_id, instance](const unsigned int id) {
+	for (auto& customer : instance.customers) {
+		unsigned int customer_id = customer.id;
+		for (auto& demand : customer.demands) {
+			unsigned int typeId = demand.first;
+			int qt = 0;
+			for (const auto& tour : solution.tours) {
+				qt += count_if(tour.item_ids.begin(), tour.item_ids.end(), [typeId, customer_id, instance](const unsigned int id) {
 					auto& item = instance.items.at(id);
-					return item.type_id == typeId && item.customer_id == customer_id; 
+					return item.type_id == typeId && item.customer_id == customer_id;
 					});
-				if (qt != demand.second) {
-					if (msg) std::cerr << "Customer " << customer.id << ": Demand is not fulfiled. Expected items of type " << typeId << ": " << demand.second << ", dispatched: " << qt << std::endl;
-					return false;
-				}
+			}
+			if (qt != demand.second) {
+				if (msg) std::cerr << "Customer " << customer.id << ": Demand is not fulfiled. Expected items of type " << typeId << ": " << demand.second << ", dispatched: " << qt << std::endl;
+				return false;
 			}
 		}
 	}
+	
 	return true;
 }
 
