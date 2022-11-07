@@ -48,7 +48,7 @@ public class TimeWindowsTest {
 
         final double time_Diff = cust_RT - distance01 - depot_ST;
 
-        Assertions.assertTrue(checkTimeWindows(solution, instance, false));
+        Assertions.assertTrue(checkTimeWindows(solution, instance, true, false));
 
         time = calculateTime(1, 0, time, instance, false);
         Assertions.assertTrue(time > 0);
@@ -86,6 +86,6 @@ public class TimeWindowsTest {
         Solution solution = new Solution(Arrays.asList(tour));
 
         // Test
-        Assertions.assertFalse(checkTimeWindows(solution, instance, false));
+        Assertions.assertFalse(checkTimeWindows(solution, instance, true,false));
     }
 }

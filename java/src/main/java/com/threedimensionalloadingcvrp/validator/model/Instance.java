@@ -27,8 +27,8 @@ public class Instance {
 	/** the maximal number of available vehicles */
 	private int			    v_max;
 
-	/** the consideration of time windows */
-	private boolean		    tw;
+	/** separation between 3L-CVRP (false) and 3L-VRPTW (true) */
+	private boolean 		tw;
 
 	/** Contains all items and their position */
 	private List<Item>		items;

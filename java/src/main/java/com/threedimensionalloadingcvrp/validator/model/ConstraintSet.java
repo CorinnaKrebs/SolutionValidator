@@ -10,7 +10,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ConstraintSet {
 
-    // Constraints
+    // Loading Constraints
 	/** Consideration of Rotation along length/width plane */
 	private boolean rotation;
 
@@ -35,7 +35,7 @@ public class ConstraintSet {
 	/** Consideration of Balanced Constraints */
 	private boolean balanced_loading;
 
-	// Parameters
+	// Loading Parameters
 	/** Vertical Support Parameter */
 	private float 	alpha;
 
@@ -44,4 +44,11 @@ public class ConstraintSet {
 
 	/** Balanced Loading Parameter */
 	private float	balanced_part;
+
+	// Routing Constraints
+	/** Consideration of Split Deliveries */
+	private boolean split;
+
+	/** Consideration of Time Windows */
+	private boolean timeWindows;
 }

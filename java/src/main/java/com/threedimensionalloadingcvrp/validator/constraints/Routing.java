@@ -17,7 +17,7 @@ public class Routing {
      * @param solution the solution
      * @param cSet     the constraint set
      * @param instance the instance
-     * @param msg     optional output messages
+     * @param msg      optional output messages
      * @return the feasibility of the solution w.r.t. routing constraints
      */
     public static boolean checkRoutingConstraints(Solution solution, final ConstraintSet cSet, Instance instance, final boolean msg) {
@@ -25,9 +25,9 @@ public class Routing {
         if (cSet == null) throw new NullPointerException("ConstraintSet is null");
         if (instance == null) throw new NullPointerException("Instance is null");
 
-        if (!checkTimeWindows(solution, instance, msg)
+        if (!checkTimeWindows(solution, instance, cSet.isTimeWindows(), msg)
                 || !checkCapacities(solution, cSet.isLoad_capacity(), instance, msg)
-                || !checkDispatchedCustomers(solution, instance, msg)
+                || !checkDispatchedCustomers(solution, cSet.isSplit(), instance, msg)
                 || !checkDispatchedItems(solution, instance, msg)
                 || !checkUsedVehicles(solution, instance, msg)
                 || !checkCost(solution, instance, msg)) {
@@ -43,7 +43,7 @@ public class Routing {
      *
      * @param solution the solution
      * @param instance the instance
-     * @param msg     optional output messages
+     * @param msg      optional output messages
      * @return feasibility of the calculation.
      */
     public static boolean checkCost(final Solution solution, final Instance instance, final boolean msg) {
@@ -77,8 +77,8 @@ public class Routing {
      * @param msg      optional output messages
      * @return feasibility of time windows.
      */
-    public static boolean checkTimeWindows(final Solution solution, final Instance instance, final boolean msg) {
-        if (instance.isTw()) {
+    public static boolean checkTimeWindows(final Solution solution, final Instance instance, boolean tw, final boolean msg) {
+        if (tw) {
             Customer depot = instance.getCustomers().get(0);
             for (Tour tour : solution.getTours()) {
                 int customer_last_id = 0;
@@ -115,9 +115,9 @@ public class Routing {
      * @param instance         the instance
      * @return the current time after visiting the customer.
      */
-    public static double calculateTime (final int customer_id, final int customer_last_id, double time, final Instance instance, final boolean msg) {
+    public static double calculateTime(final int customer_id, final int customer_last_id, double time, final Instance instance, final boolean msg) {
         final Customer customer_current = instance.getCustomers().get(customer_id);
-        final Customer customer_last    = instance.getCustomers().get(customer_last_id);
+        final Customer customer_last = instance.getCustomers().get(customer_last_id);
         final double distance = calcEuclideanDistance(customer_last.getX(), customer_last.getY(), customer_current.getX(), customer_current.getY());
         time += distance;
         if (time < customer_current.getReadyTime()) {
@@ -161,13 +161,13 @@ public class Routing {
             double sumVolume = 0;
             double sumMass = 0;
             for (int customer_id : tour.getCustomer_ids()) {
-			final Customer customer = instance.getCustomers().get(customer_id);
+                final Customer customer = instance.getCustomers().get(customer_id);
                 sumVolume += customer.getDemandedVolume();
                 sumMass += customer.getDemandedMass();
             }
 
             if (sumVolume > instance.getVehicle().getLoad_volume()) {
-                if (msg)  System.err.println("Exceeding Volume in Tour " + tour.getId());
+                if (msg) System.err.println("Exceeding Volume in Tour " + tour.getId());
                 return false;
             }
             if (sumMass > instance.getVehicle().getD() && load_capacity) {
@@ -180,15 +180,16 @@ public class Routing {
     }
 
     /**
-     * Check if all customers are dispatched and visited only once.
+     * Check if all customers are dispatched.
      *
      * @param solution the solution
+     * @param split    split deliveries
      * @param instance the instance
      * @param msg      optional output messages
-     * @return true if all customers are visited once.
+     * @return true if all customers are visited.
      */
-    public static boolean checkDispatchedCustomers(final Solution solution, final Instance instance, final boolean msg) {
-        // Constraint: Each customer is visited exactly once;
+    public static boolean checkDispatchedCustomers(final Solution solution, final boolean split, final Instance instance, final boolean msg) {
+        // Without Split Deliveries: Each customer is visited exactly once;
         // Constraint: Each route visits at least one customer;
 
         HashSet<Integer> dispatched_customers = new HashSet<>();
@@ -201,11 +202,13 @@ public class Routing {
 
             for (final int customer_id : tour.getCustomer_ids()) {
                 if (dispatched_customers.contains(customer_id)) {
-                    if (msg) System.err.print("Customer " + customer_id + " dispatched several times.");
-                    return false;
+                    if (!split) {
+                        if (msg) System.err.print("Customer " + customer_id + " dispatched several times.");
+                        return false;
+                    }
+                } else {
+                    dispatched_customers.add(customer_id);
                 }
-
-                dispatched_customers.add(customer_id);
             }
         }
 
@@ -226,18 +229,18 @@ public class Routing {
      * @return true if all items of all customers are dispatched.
      */
     public static boolean checkDispatchedItems(final Solution solution, final Instance instance, final boolean msg) {
-        for (Tour tour : solution.getTours()) {
-            for (int customer_id : tour.getCustomer_ids()) {
-                Customer customer = instance.getCustomers().get(customer_id);
-                for (Demand demand : customer.getDemands()) {
-                    int qt = (int) tour.getItem_ids().stream().filter(id -> {
-                        Item item = instance.getItems().get(id);
-                        return item.getType_id() == demand.getItemTypeId() && item.getCustomer_id() == customer_id;}
-                        ).count();
-                    if (qt != demand.getQuantity()) {
-                        if (msg) System.err.println("Customer " + customer.getId() + ": Demand is not fulfiled. Expected items of type " + demand.getItemTypeId() + ": " + demand.getQuantity() + ", dispatched: " + qt);
-                        return false;
-                    }
+        for (Customer customer : instance.getCustomers()) {
+            for (Demand demand : customer.getDemands()) {
+                int qt = 0;
+                for (Tour tour : solution.getTours()) {
+                    qt += (int) tour.getItem_ids().stream().filter(id -> {
+                                Item item = instance.getItems().get(id);
+                                return item.getType_id() == demand.getItemTypeId() && item.getCustomer_id() == customer.getId();
+                            }).count();
+                }
+                if (qt != demand.getQuantity()) {
+                    if (msg) System.err.println("Customer " + customer.getId() + ": Demand is not fulfilled. Expected items of type " + demand.getItemTypeId() + ": " + demand.getQuantity() + ", dispatched: " + qt);
+                    return false;
                 }
             }
         }

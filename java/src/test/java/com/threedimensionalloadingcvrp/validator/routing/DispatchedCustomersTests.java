@@ -4,6 +4,7 @@ import com.threedimensionalloadingcvrp.validator.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Array;
 import java.util.Arrays;
 
 import static com.threedimensionalloadingcvrp.validator.constraints.Routing.checkDispatchedCustomers;
@@ -13,7 +14,15 @@ public class DispatchedCustomersTests {
     @Test
     public void Customer1Twice() {
         // Instance Creation
-        Instance instance = new Instance("", null, null, null, 3, false, null);
+        Customer     depot = new Customer(0, 0, 0, 0, 0, 0, 0, 0, 0);
+        Customer customer1 = new Customer(1, 0, 0, 0, 0, 0, 0, 0, 0);
+        Customer customer2 = new Customer(2, 0, 0, 0, 0, 0, 0, 0, 0);
+        Customer customer3 = new Customer(3, 0, 0, 0, 0, 0, 0, 0, 0);
+        Customer customer4 = new Customer(4, 0, 0, 0, 0, 0, 0, 0, 0);
+
+        Instance instance = new Instance("", null, null,
+                Arrays.asList(depot, customer1, customer2, customer3, customer4), 3, false, null);
+
 
         // Tour Creation
         Tour tour1 = new Tour(1, Arrays.asList(2, 3), null);
@@ -24,7 +33,8 @@ public class DispatchedCustomersTests {
         Solution solution = new Solution(Arrays.asList(tour1, tour2, tour3));
 
         // Test
-        Assertions.assertFalse(checkDispatchedCustomers(solution, instance, false));
+        Assertions.assertFalse(checkDispatchedCustomers(solution, false, instance, false));
+        Assertions.assertTrue(checkDispatchedCustomers(solution, true, instance, false));
     }
 
     @Test
@@ -47,7 +57,8 @@ public class DispatchedCustomersTests {
         Solution solution = new Solution(Arrays.asList(tour1, tour2));
 
         // Test
-        Assertions.assertFalse(checkDispatchedCustomers(solution, instance, false));
+        Assertions.assertFalse(checkDispatchedCustomers(solution, false, instance, false));
+        Assertions.assertFalse(checkDispatchedCustomers(solution, true, instance, false));
     }
 
     @Test
@@ -64,7 +75,8 @@ public class DispatchedCustomersTests {
         Solution solution = new Solution(Arrays.asList(tour1, tour2, tour3));
 
         // Test
-        Assertions.assertFalse(checkDispatchedCustomers(solution, instance, false));
+        Assertions.assertFalse(checkDispatchedCustomers(solution, false, instance, false));
+        Assertions.assertFalse(checkDispatchedCustomers(solution, true, instance, false));
     }
 
     @Test
@@ -88,6 +100,6 @@ public class DispatchedCustomersTests {
         Solution solution = new Solution(Arrays.asList(tour1, tour2));
 
         // Test
-        Assertions.assertTrue(checkDispatchedCustomers(solution, instance, false));
+        Assertions.assertTrue(checkDispatchedCustomers(solution, false, instance, false));
     }
 }

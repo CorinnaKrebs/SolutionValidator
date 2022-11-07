@@ -278,14 +278,14 @@ public class Read {
      * @param constraintPath the path to the constraint file.
      * @return the constraint set
      */
-    public static ConstraintSet readConstraintFile(final String constraintPath) {
+    public static ConstraintSet readConstraintFile(final String constraintPath, final boolean hasTimeWindows) {
         try {
             Scanner scanner = new Scanner(new File(constraintPath));
             scanner.useLocale(Locale.US);
 
             float alpha = 0, balanced_part = 0;
-            int lambda = 0, intRot = 0, intLoad = 0, intSeq = 0, intStab = 0, intStack = 0, intReach = 0, intAx = 0, intBal = 0;
-
+            int lambda = 0, intRot = 0, intLoad = 0, intSeq = 0, intStab = 0, intStack = 0, intReach = 0,
+                    intAx = 0, intBal = 0, intTW = hasTimeWindows ? 1 : 0, intSplit = 0;
             scanner.nextLine();  // Skip first Line
 
             String var = scanner.next();
@@ -324,6 +324,22 @@ public class Read {
             scanner.nextLine(); var = scanner.next();
             if (var.equals("balancing"))			intBal = scanner.nextInt();
 
+            if (scanner.hasNextLine()) {
+                scanner.nextLine();
+                if (scanner.hasNext()) {
+                    var = scanner.next();
+                    if (var.equals("TimeWindows")) intTW = scanner.nextInt();
+                }
+            }
+
+            if (scanner.hasNextLine()) {
+                scanner.nextLine();
+                if (scanner.hasNext()) {
+                    var = scanner.next();
+                    if (var.equals("SplitDelivery")) intSplit = scanner.nextInt();
+                }
+            }
+
             boolean rotation = intRot != 0;
             boolean load_capacity = intLoad != 0;
             UnloadingSequence uSequence = UnloadingSequence.values()[intSeq];
@@ -332,10 +348,13 @@ public class Read {
             boolean reachability = intReach != 0;
             boolean axle_weights = intAx != 0;
             boolean balanced_loading = intBal != 0;
+            boolean timeWindows = intTW != 0;
+            boolean split = intSplit != 0;
 
 
             return new ConstraintSet(rotation, load_capacity, uSequence, vStability,
-                    stacking, reachability, axle_weights, balanced_loading, alpha, lambda, balanced_part);
+                    stacking, reachability, axle_weights, balanced_loading, alpha,
+                    lambda, balanced_part, timeWindows, split);
 
         }
         catch (FileNotFoundException nfe) {
@@ -358,6 +377,8 @@ public class Read {
             int vUsed = 0, iterations = 0;
             float calculationTime = 0;
             double totalTravelDistance = 0;
+            double totalTravelTime = 0;
+            double unloadingEffort = 0;
             List<Tour> tours = new ArrayList<>();
 
             Scanner scanner = new Scanner(new File(solutionPath));
@@ -378,6 +399,13 @@ public class Read {
 
             var = scanner.next();
             if (var.equals("Total_Travel_Distance:"))		totalTravelDistance = scanner.nextDouble();
+
+            var = scanner.next();
+            if (var.equals("Total_Unloading_Effort:")) {
+                unloadingEffort = scanner.nextFloat();
+                var = scanner.next();
+                if (var.equals("Total_Travel_Time:"))		totalTravelTime = scanner.nextDouble();
+            }
 
             var = scanner.next();
             if (var.equals("Calculation_Time:"))			calculationTime = scanner.nextFloat();
@@ -443,7 +471,8 @@ public class Read {
                     tours.add(new Tour(r, customerIds, new ArrayList<>()));
                 }
             }
-            return new Solution(tours, totalTravelDistance, 0, true, iterations, calculationTime);
+            return new Solution(tours, totalTravelDistance, totalTravelTime, unloadingEffort,
+                    true, iterations, calculationTime);
 
         } catch (FileNotFoundException nfe) {
             System.err.println("Could not open Packing Plan file " + solutionPath);
