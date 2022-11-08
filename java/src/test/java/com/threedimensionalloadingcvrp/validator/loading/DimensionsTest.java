@@ -13,7 +13,7 @@ public class DimensionsTest {
     @BeforeEach
     public void initialize() {
         final int dim = 5;
-        item = new Item(1, 1, false, new ItemType(1, dim, dim, dim, 0, false, 0));
+        item = new Item(1, 1, Rotation.none, new ItemType(1, dim, dim, dim, 0, false, 0));
     }
 
     @Test

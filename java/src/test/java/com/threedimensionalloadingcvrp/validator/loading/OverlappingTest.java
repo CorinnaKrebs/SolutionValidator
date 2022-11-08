@@ -15,8 +15,8 @@ public class OverlappingTest {
     public void OverlappingCheck() {
 
         ItemType itemType = new ItemType(1, dim, dim, dim, 0, false, 0);
-        Item item1 = new Item(0, 1, false, itemType);
-        Item item2 = new Item(1, 1, false, itemType);
+        Item item1 = new Item(0, 1, Rotation.none, itemType);
+        Item item2 = new Item(1, 1, Rotation.none, itemType);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(item1, item2));

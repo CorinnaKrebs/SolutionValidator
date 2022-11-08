@@ -17,8 +17,8 @@ public class USequenceTest {
     public void InfeasiblePositions() {
         ItemType type = new ItemType(1, dim, dim, dim, 0, false, 0);
 
-        Item item1 = new Item(0, 1, false, type);
-        Item item2 = new Item(1, 2, false, type);
+        Item item1 = new Item(0, 1, Rotation.none, type);
+        Item item2 = new Item(1, 2, Rotation.none, type);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 5, false, Arrays.asList(item1, item2));
@@ -54,9 +54,9 @@ public class USequenceTest {
         ItemType typeHigh   = new ItemType(2,     dim,   dim, 2 * dim,   0, false, 0);
         ItemType typeLong   = new ItemType(3, 2 * dim,   dim,     dim,   0, false, 0);
 
-        Item itemC1 = new Item(0, 1, false, typeNormal);
-        Item itemC2High = new Item(1, 2, false, typeHigh);
-        Item itemC2Long = new Item(2, 2, false, typeLong);
+        Item itemC1 = new Item(0, 1, Rotation.none, typeNormal);
+        Item itemC2High = new Item(1, 2, Rotation.none, typeHigh);
+        Item itemC2Long = new Item(2, 2, Rotation.none, typeLong);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(itemC1, itemC2High, itemC2Long));
@@ -86,8 +86,8 @@ public class USequenceTest {
     public void FeasiblePosition() {
         ItemType type = new ItemType(1, dim, dim, dim, 0, false, 0);
 
-        Item itemC1 = new Item(0, 1, false, type);
-        Item itemC2 = new Item(1, 2, false, type);
+        Item itemC1 = new Item(0, 1, Rotation.none, type);
+        Item itemC2 = new Item(1, 2, Rotation.none, type);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(itemC1, itemC2));

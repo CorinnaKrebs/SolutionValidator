@@ -23,9 +23,9 @@ public class LBSTest {
         ItemType typeLong   = new ItemType(2, dim, 2* dim, dim, mass, false, 2.0);
 
         // Bottom
-        Item itemBottomLeft  = new Item(0, 1, false, typeNormal);
-        Item itemBottomRight = new Item(1, 1, false, typeNormal);
-        Item itemTop         = new Item(2, 1, false, typeLong);
+        Item itemBottomLeft  = new Item(0, 1, Rotation.none, typeNormal);
+        Item itemBottomRight = new Item(1, 1, Rotation.none, typeNormal);
+        Item itemTop         = new Item(2, 1, Rotation.none, typeLong);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(itemBottomLeft, itemBottomRight, itemTop));
@@ -65,16 +65,16 @@ public class LBSTest {
         ItemType type = new ItemType(1, dim, dim, dim, 2, false, 1.0);
 
         // Bottom
-        Item itemBottomLeft   = new Item(0, 1, false, type);
-        Item itemBottomCenter = new Item(1, 1, false, type);
-        Item itemBottomRight  = new Item(2, 1, false, type);
+        Item itemBottomLeft   = new Item(0, 1, Rotation.none, type);
+        Item itemBottomCenter = new Item(1, 1, Rotation.none, type);
+        Item itemBottomRight  = new Item(2, 1, Rotation.none, type);
 
         // Second Row
-        Item itemCenterLeft  = new Item(3, 1, false, type);
-        Item itemCenterRight = new Item(4, 1, false, type);
+        Item itemCenterLeft  = new Item(3, 1, Rotation.none, type);
+        Item itemCenterRight = new Item(4, 1, Rotation.none, type);
 
         // Top Row
-        Item itemTop = new Item(5, 1, false, type);
+        Item itemTop = new Item(5, 1, Rotation.none, type);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false,
@@ -119,16 +119,16 @@ public class LBSTest {
         ItemType type = new ItemType(1, dim, dim, dim, 2, false, 1.0);
 
         // Bottom
-        Item itemBottomLeft = new Item(0, 1, false, type);
-        Item itemBottomCenter = new Item(1, 1, false, type);
-        Item itemBottomRight = new Item(2, 1, false, type);
+        Item itemBottomLeft = new Item(0, 1, Rotation.none, type);
+        Item itemBottomCenter = new Item(1, 1, Rotation.none, type);
+        Item itemBottomRight = new Item(2, 1, Rotation.none, type);
 
         // Second Row
-        Item itemCenterLeft = new Item(3, 1, false, type);
-        Item itemCenterRight = new Item(4, 1, false, type);
+        Item itemCenterLeft = new Item(3, 1, Rotation.none, type);
+        Item itemCenterRight = new Item(4, 1, Rotation.none, type);
 
         // Top Row
-        Item itemTop = new Item(5, 1, false, type);
+        Item itemTop = new Item(5, 1, Rotation.none, type);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false,

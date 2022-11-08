@@ -114,7 +114,7 @@ public class Read {
                 }
             }
             Instance instance = new Instance(name, vehicle, itemtypes, customers, v_max, tw);
-            List<Item> items = new ArrayList<>(Collections.nCopies(no_items + 1, new Item(0, 0, false, new ItemType(0, 0, 0, 0, 0, false, 0))));
+            List<Item> items = new ArrayList<>(Collections.nCopies(no_items + 1, new Item(0, 0, Rotation.none, new ItemType(0, 0, 0, 0, 0, false, 0))));
             instance.setItems(items);
             return instance;
 
@@ -495,7 +495,7 @@ public class Read {
         int id = scanner.nextInt();
         int typeId = scanner.nextInt();
         int intRot = scanner.nextInt();
-        boolean rotated = intRot != 0;
+        Rotation rotation = Rotation.values()[intRot];
         int x = scanner.nextInt();
         int y = scanner.nextInt();
         int z = scanner.nextInt();
@@ -503,7 +503,7 @@ public class Read {
 
         ItemType itemtype = instance.getItemTypes().get(typeId);
 
-        Item item = new Item(id, customer_id, rotated, itemtype);
+        Item item = new Item(id, customer_id, rotation, itemtype);
         item.setPosition(new Point(x, y, z));
 
         return item;

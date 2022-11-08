@@ -18,10 +18,10 @@ public class TopOverhangingTest {
         ItemType type = new ItemType(1, dim, dim, dim, 0, false, 0);
         ItemType typeLong = new ItemType(1, (int) (1.25 * dim), dim, dim, 0, false, 0);
 
-        Item item1 = new Item(0, 1, false, type);
-        Item item2 = new Item(1, 1, false, type);
-        Item item3 = new Item(2, 1, false, typeLong);
-        Item item4 = new Item(3, 1, false, type);
+        Item item1 = new Item(0, 1, Rotation.none, type);
+        Item item2 = new Item(1, 1, Rotation.none, type);
+        Item item3 = new Item(2, 1, Rotation.none, typeLong);
+        Item item4 = new Item(3, 1, Rotation.none, type);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(item1, item2, item3, item4));
@@ -58,10 +58,10 @@ public class TopOverhangingTest {
         ItemType type     = new ItemType(1, dim, dim, dim, 0, false, 0);
         ItemType typeLong = new ItemType(1, (int) (1.25 * dim), dim, dim, 0, false, 0);
 
-        Item item1 = new Item(0, 1, false, type);
-        Item item2 = new Item(1, 1, false, type);
-        Item item3 = new Item(2, 1, false, type);
-        Item item4 = new Item(3, 1, false, typeLong);
+        Item item1 = new Item(0, 1, Rotation.none, type);
+        Item item2 = new Item(1, 1, Rotation.none, type);
+        Item item3 = new Item(2, 1, Rotation.none, type);
+        Item item4 = new Item(3, 1, Rotation.none, typeLong);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(item1, item2, item3, item4));

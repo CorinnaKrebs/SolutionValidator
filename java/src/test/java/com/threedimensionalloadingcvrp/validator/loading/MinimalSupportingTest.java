@@ -19,8 +19,8 @@ public class MinimalSupportingTest {
 
         ItemType type = new ItemType(1, dim, dim, dim, 0, false, 0);
 
-        Item itemBottom = new Item(0, 1, false, type);
-        Item itemTop = new Item(1, 1, false, type);
+        Item itemBottom = new Item(0, 1, Rotation.none, type);
+        Item itemTop = new Item(1, 1, Rotation.none, type);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(itemBottom, itemTop));
@@ -47,8 +47,8 @@ public class MinimalSupportingTest {
 
         ItemType type = new ItemType(1, dim, dim, dim, 0, false, 0);
 
-        Item itemBottom = new Item(0, 1, false, type);
-        Item itemTop = new Item(1, 1, false, type);
+        Item itemBottom = new Item(0, 1, Rotation.none, type);
+        Item itemTop = new Item(1, 1, Rotation.none, type);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(itemBottom, itemTop));

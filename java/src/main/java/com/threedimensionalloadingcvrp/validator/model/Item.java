@@ -21,8 +21,8 @@ public class Item {
     /** Customer Id */
     private int customer_id;
 
-    /** Rotation Flag (1: rotated (l = w, w = l)) */
-    private boolean rotated;
+    /** Rotation Status */
+    private Rotation rotation;
 
     /** Length */
     private int l;
@@ -76,13 +76,13 @@ public class Item {
      *
      * @param id          the unique item id
      * @param customer_id the customer id
-     * @param rotated     the rotation flag
+     * @param rotation    the rotation status
      * @param type        the ItemType
      */
-    public Item(final int id, final int customer_id, final boolean rotated, ItemType type) {
+    public Item(final int id, final int customer_id, final Rotation rotation, ItemType type) {
         this.id = id;
         this.customer_id = customer_id;
-        this.rotated = rotated;
+        this.rotation = rotation;
         this.type_id = type.getId();
         this.l = type.getL();
         this.w = type.getW();
@@ -108,10 +108,49 @@ public class Item {
      * @param point the minimum corner point
      */
     public void setPosition(final Point point) {
+        int maxX, maxY, maxZ;
         min = point;
-        int maxX = !rotated ? min.getX() + l : min.getX() + w;
-        int maxY = !rotated ? min.getY() + w : min.getY() + l;
-        int maxZ = min.getZ() + h;
+
+
+        switch (rotation) {
+            default:
+                maxX = min.getX() + l;
+                maxY = min.getY() + w;
+                maxZ = min.getZ() + h;
+                break;
+
+            case LengthHeightWidth:
+                maxX = min.getX() + l;
+                maxY = min.getY() + h;
+                maxZ = min.getZ() + w;
+                break;
+
+            case WidthLengthHeight:
+                maxX = min.getX() + w;
+                maxY = min.getY() + l;
+                maxZ = min.getZ() + h;
+                break;
+
+            case WidthHeightLength:
+                maxX = min.getX() + w;
+                maxY = min.getY() + h;
+                maxZ = min.getZ() + l;
+                break;
+
+
+            case HeightLengthWidth:
+                maxX = min.getX() + h;
+                maxY = min.getY() + l;
+                maxZ = min.getZ() + w;
+                break;
+
+            case HeightWidthLength:
+                maxX = min.getX() + h;
+                maxY = min.getY() + w;
+                maxZ = min.getZ() + l;
+                break;
+
+        }
         max = new Point(maxX, maxY, maxZ);
     }
 

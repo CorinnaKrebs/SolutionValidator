@@ -684,7 +684,7 @@ public class Loading {
 
             // Calculate Item's Force
             double item_F = item.getMass() * g;
-            int length = !item.isRotated() ? item.getL() : item.getW();
+            int length = item.getMax().getX() - item.getMin().getX();
 
             long F_RA = 0, F_FA = 0, F_TA = 0;
 
@@ -762,7 +762,7 @@ public class Loading {
             }
             // Distribute Mass
             else {
-                double width = !item.isRotated() ? item.getW() : item.getL();
+                double width = item.getMax().getY() - item.getMin().getY();
                 double left_area = (W_half - item.getMin().getY()) * width;
                 double part = left_area / ((double) item.getW() * item.getL());
                 double mass_left = part * item.getMass();

@@ -20,9 +20,9 @@ public class BalancedLoadingTest {
     public void init() {
         ItemType type = new ItemType(1, dim, dim + 1, dim, mass, false, 0);
 
-        Item item1 = new Item(0, 1, false, type);
-        Item item2 = new Item(1, 1, false, type);
-        Item item3 = new Item(2, 1, false, type);
+        Item item1 = new Item(0, 1, Rotation.none, type);
+        Item item2 = new Item(1, 1, Rotation.none, type);
+        Item item3 = new Item(2, 1, Rotation.none, type);
 
         // Instance Creation
         Vehicle vehicle = new Vehicle(5 * dim, 2 * dim, dim, 3.0 * mass, 0, 0, 0, 0, 0);

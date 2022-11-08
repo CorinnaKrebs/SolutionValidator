@@ -15,8 +15,8 @@ public class FragilityTest {
     @Test
     public void InfeasiblePosition() {
         // Non-Fragile on Top of Fragile -> Not Feasible
-        Item itemFragile = new Item(0, 1, false, new ItemType (1,  dim, dim, dim, 0, true, 0));
-        Item itemNormal  = new Item(1, 1, false, new ItemType (1,  dim, dim, dim, 0, false, 0));
+        Item itemFragile = new Item(0, 1, Rotation.none, new ItemType (1,  dim, dim, dim, 0, true, 0));
+        Item itemNormal  = new Item(1, 1, Rotation.none, new ItemType (1,  dim, dim, dim, 0, false, 0));
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(itemFragile, itemNormal));
@@ -42,10 +42,10 @@ public class FragilityTest {
         ItemType typeNormal  = new ItemType(1,  dim, dim, dim, 0,  false, 0);
         ItemType typeFragile = new ItemType(2, dim, dim, dim, 0, true, 0);
 
-        Item itemNormal1 = new Item(0, 1, false, typeNormal);
-        Item itemNormal2 = new Item(1, 1, false, typeNormal);
-        Item itemFragile1 = new Item(2, 1, false, typeFragile);
-        Item itemFragile2 = new Item(3, 1, false, typeFragile);
+        Item itemNormal1 = new Item(0, 1, Rotation.none, typeNormal);
+        Item itemNormal2 = new Item(1, 1, Rotation.none, typeNormal);
+        Item itemFragile1 = new Item(2, 1, Rotation.none, typeFragile);
+        Item itemFragile2 = new Item(3, 1, Rotation.none, typeFragile);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(itemNormal1, itemNormal2, itemFragile1, itemFragile2));

@@ -18,7 +18,7 @@ public class AxleWeightTest {
     @BeforeEach
     public void init() {
         ItemType type = new ItemType (1, dim, dim, dim, mass, false, 0);
-        Item item = new Item(0, 1, false, type);
+        Item item = new Item(0, 1, Rotation.none, type);
 
         // Instance Creation
         Vehicle vehicle = new Vehicle(60, 25, 30, 90, 0, 48, 50, 82, lF);

@@ -23,10 +23,10 @@ public class MultipleOverhangingTest {
         ItemType typeHigh   = new ItemType(2, dim, dim, 2 * dim,    0, false, 0);
         ItemType typeTop    = new ItemType(3, dim, 2 * dim +1, dim, 0, false, 0);
 
-        Item itemNormal1 = new Item(0, 1, false, typeNormal);
-        Item itemNormal2 = new Item(1, 1, false, typeNormal);
-        Item itemHigh    = new Item(2, 1, false, typeHigh);
-        Item itemTop     = new Item(3, 1, false, typeTop);
+        Item itemNormal1 = new Item(0, 1, Rotation.none, typeNormal);
+        Item itemNormal2 = new Item(1, 1, Rotation.none, typeNormal);
+        Item itemHigh    = new Item(2, 1, Rotation.none, typeHigh);
+        Item itemTop     = new Item(3, 1, Rotation.none, typeTop);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(itemNormal1, itemNormal2, itemHigh, itemTop));
@@ -62,9 +62,9 @@ public class MultipleOverhangingTest {
         ItemType typeWide   = new ItemType(2, dim, (int) (w/alpha),           dim, 0, false, 0);
         ItemType typeTop    = new ItemType(3, dim, (int) (w/(alpha * alpha)), dim, 0, false, 0);
 
-        Item itemBottom = new Item(0, 1, false, typeBottom);
-        Item itemWide   = new Item(1, 1, false, typeWide);
-        Item itemTop    = new Item(2, 1, false, typeTop);
+        Item itemBottom = new Item(0, 1, Rotation.none, typeBottom);
+        Item itemWide   = new Item(1, 1, Rotation.none, typeWide);
+        Item itemTop    = new Item(2, 1, Rotation.none, typeTop);
 
         // Instance Creation
         Instance instance = new Instance("", null, null, null, 0, false, Arrays.asList(itemBottom, itemWide, itemTop));

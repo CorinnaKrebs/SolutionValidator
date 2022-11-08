@@ -21,8 +21,8 @@ public class ReachabilityTest {
             ItemType typeBottom = new ItemType(1,    3 * dim, dim, dim, 0, false, 0);
             ItemType typeTop    = new ItemType(2, dim,      dim, dim, 0, false, 0);
 
-            Item itemTop    = new Item(0, 1, false, typeBottom);
-            Item itemBottom = new Item(1, 2, false, typeTop);
+            Item itemTop    = new Item(0, 1, Rotation.none, typeBottom);
+            Item itemBottom = new Item(1, 2, Rotation.none, typeTop);
 
 
             Customer customerBottom = new Customer(1, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -48,8 +48,8 @@ public class ReachabilityTest {
             ItemType typeBottom = new ItemType(1, 2 * dim, dim, dim, 0, false, 0);
             ItemType typeTop    = new ItemType(2, dim, dim, dim, 0, false, 0);
 
-            Item itemTop    = new Item(0, 1, false, typeBottom);
-            Item itemBottom = new Item(1, 2, false, typeTop);
+            Item itemTop    = new Item(0, 1, Rotation.none, typeBottom);
+            Item itemBottom = new Item(1, 2, Rotation.none, typeTop);
 
 
             Customer customerBottom = new Customer(1, 0, 0, 0, 0, 0, 0, 0, 0);

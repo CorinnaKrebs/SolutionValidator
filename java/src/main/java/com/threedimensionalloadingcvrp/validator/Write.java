@@ -160,7 +160,7 @@ public class Write {
                 for (int itemId : tour.getItem_ids()) {
                     Item item = instance.getItems().get(itemId);
                     int fragFlag = item.isFragile() ? 1 : 0;
-                    int rotationFlag = item.isRotated() ? 1 : 0;
+                    int rotationFlag = item.getRotation().ordinal();
                     String itemMass = (int) item.getMass() == item.getMass() ? String.format("%.0f", item.getMass()) : String.format(Locale.ENGLISH, "%.2f", item.getMass());
 
                     writer.write(item.getCustomer_id() + "\t" + itemId + "\t" + item.getType_id() + "\t" + rotationFlag + "\t" + item.getMin().getX() + "\t" + item.getMin().getY() + "\t" + item.getMin().getZ() + "\t" + item.getL() + "\t" + item.getW() + "\t" + item.getH() + "\t");
