@@ -14,8 +14,8 @@ public:
 		// 2nd item is half overhanging
 		ItemType type(1, dim, dim, dim, 0, false, 0);
 
-		Item item1(0, 1, 0, type);
-		Item item2(1, 1, 0, type);
+		Item item1(0, 1, Rotation::none, type);
+		Item item2(1, 1, Rotation::none, type);
 
 		// Instance Creation
 		Customer customer(1, 0, 0, 2, 0, 0, 0, 0, 0);
@@ -55,7 +55,7 @@ public:
 
 		// Create Items and set Position
 		for (int i = 0; i < 6; ++i) {
-			Item item(i, 1, 0, type);
+			Item item(i, 1, Rotation::none, type);
 			bool odd = i % 2;
 			int y = odd * dim + (i / 2) * 0.25 * dim;
 			int z = (i / 2) * dim;
@@ -92,7 +92,7 @@ public:
 
 		// Create Items and set Position
 		for (int i = 0; i < 6; ++i) {
-			Item item(i, 1, 0, type);
+			Item item(i, 1, Rotation::none, type);
 			bool odd = i % 2;
 			int y = odd * dim + odd * 0.25 * dim;
 			int z = (i / 2) * dim;

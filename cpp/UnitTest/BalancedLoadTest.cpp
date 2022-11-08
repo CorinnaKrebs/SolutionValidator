@@ -17,9 +17,9 @@ namespace LoadingConstraints {
 		TEST_METHOD(LeftExceeding) {	
 			ItemType type(1, dim, dim + 0.5, dim, mass, false, 0);
 
-			Item item1(0, 1, 0, type);
-			Item item2(1, 1, 0, type);
-			Item item3(2, 1, 0, type);
+			Item item1(0, 1, Rotation::none, type);
+			Item item2(1, 1, Rotation::none, type);
+			Item item3(2, 1, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 3, 0, 0, 0, 0, 0);
@@ -56,9 +56,9 @@ namespace LoadingConstraints {
 		TEST_METHOD(RightExceeding) {
 			ItemType type(1, dim, dim, dim, mass, false, 0);
 
-			Item item1(0, 1, 0, type);
-			Item item2(1, 1, 0, type);
-			Item item3(2, 1, 0, type);
+			Item item1(0, 1, Rotation::none, type);
+			Item item2(1, 1, Rotation::none, type);
+			Item item3(2, 1, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 2, 0, 0, 0, 0, 0);
@@ -98,9 +98,9 @@ namespace LoadingConstraints {
 			unsigned int vehW  = 2 * dim;
 			ItemType type(1, dim, itemW, dim, mass, false, 0);
 
-			Item item1(0, 1, 0, type);
-			Item item2(1, 1, 0, type);
-			Item item3(2, 1, 0, type);
+			Item item1(0, 1, Rotation::none, type);
+			Item item2(1, 1, Rotation::none, type);
+			Item item3(2, 1, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 3, 0, 0, 0, 0, 0);
@@ -140,9 +140,9 @@ namespace LoadingConstraints {
 		TEST_METHOD(Feasible) {
 			ItemType type(1, dim, dim, dim, mass, false, 0);
 
-			Item item1(0, 1, 0, type);
-			Item item2(1, 1, 0, type);
-			Item item3(2, 1, 0, type);
+			Item item1(0, 1, Rotation::none, type);
+			Item item2(1, 1, Rotation::none, type);
+			Item item3(2, 1, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 3, 0, 0, 0, 0, 0);

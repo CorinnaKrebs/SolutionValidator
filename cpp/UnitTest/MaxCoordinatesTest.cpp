@@ -12,14 +12,14 @@ namespace LoadingConstraints
 	public:
 
 		TEST_METHOD(WrongCoordinates) {
-			Item item(1, 1, 0, ItemType(1, dim, dim, dim, 0, 0, 0));
+			Item item(1, 1, Rotation::none, ItemType(1, dim, dim, dim, 0, 0, 0));
 			item.setPosition(Point(0, 0, 0));
 			item.max = Point(0, 0, 0);
 			Assert::AreEqual(false, ConstraintsLoading::checkMaxCoordinates(item, true));
 		}
 
 		TEST_METHOD(CorrectCoordinates) {
-			Item item(1, 1, 0, ItemType(1, dim, dim, dim, 0, 0, 0));
+			Item item(1, 1, Rotation::none, ItemType(1, dim, dim, dim, 0, 0, 0));
 			item.setPosition(Point(0, 0, 0));
 			Assert::AreEqual(true, ConstraintsLoading::checkMaxCoordinates(item, true));
 		}

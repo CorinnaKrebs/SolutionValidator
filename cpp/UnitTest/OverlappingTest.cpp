@@ -14,8 +14,8 @@ namespace LoadingConstraints {
 		TEST_METHOD(ItemsOverlapping) {
 			
 			ItemType itemType(1, dim, dim, dim, 0, 0, 0);
-			Item item1(0, 1, 0, itemType);
-			Item item2(1, 1, 0, itemType);
+			Item item1(0, 1, Rotation::none, itemType);
+			Item item2(1, 1, Rotation::none, itemType);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 2, 0, 0, 0, 0, 0);

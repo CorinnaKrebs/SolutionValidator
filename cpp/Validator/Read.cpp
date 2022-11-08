@@ -391,13 +391,14 @@ namespace validator {
 	Item  Read::readItem(const std::string line, Instance& instance) {
 		std::istringstream	iss;
 
-		unsigned int id, type_id, customer_id, rotation;
+		unsigned int id, type_id, customer_id, intRotation;
 
 		unsigned int x, y, z;
 
 		iss.clear(); iss.str(line);
-		iss >> customer_id >> id >> type_id >> rotation >> x >> y >> z;
+		iss >> customer_id >> id >> type_id >> intRotation >> x >> y >> z;
 
+		Rotation rotation = static_cast<Rotation>(intRotation);
 		const ItemType& itemtype = instance.itemTypes.at(type_id);
 
 		Item item(id, customer_id, rotation, itemtype);

@@ -20,8 +20,8 @@ namespace LoadingConstraints {
 			ItemType typeBottom(1, 3 * dim,  dim, dim, 0, false, 0);
 			ItemType typeTop   (2, dim,      dim, dim, 0, false, 0);
 
-			Item itemTop(0, 1, 0, typeBottom);
-			Item itemBottom(1, 2, 0, typeTop);
+			Item itemTop(0, 1, Rotation::none, typeBottom);
+			Item itemBottom(1, 2, Rotation::none, typeTop);
 
 
 			Customer customerBottom(1, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -54,8 +54,8 @@ namespace LoadingConstraints {
 			ItemType typeBottom(1, 2 * dim, dim, dim, 0, false, 0);
 			ItemType typeTop(2, dim, dim, dim, 0, false, 0);
 
-			Item itemTop(0, 1, 0, typeBottom);
-			Item itemBottom(1, 2, 0, typeTop);
+			Item itemTop(0, 1, Rotation::none, typeBottom);
+			Item itemBottom(1, 2, Rotation::none, typeTop);
 
 
 			Customer customerBottom(1, 0, 0, 0, 0, 0, 0, 0, 0);

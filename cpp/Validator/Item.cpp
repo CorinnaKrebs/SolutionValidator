@@ -4,10 +4,10 @@ namespace validator {
 
 
 
-	Item::Item(const int id, const int customer_id, const bool rotated, const ItemType& type) {
+	Item::Item(const int id, const int customer_id, const Rotation& rotation, const ItemType& type) {
 		this->id = id;
 		this->customer_id = customer_id;
-		this->rotated = rotated;
+		this->rotation = rotation;
 		this->type_id = type.id;
 		this->dimension = type.dimension;
 		this->mass = type.mass;
@@ -28,9 +28,48 @@ namespace validator {
 
 	void Item::setPosition(Point point) {
 		min = point;
-		unsigned int maxX = !rotated ? min.x + dimension.l : min.x + dimension.w;
-		unsigned int maxY = !rotated ? min.y + dimension.w : min.y + dimension.l;
-		unsigned int maxZ = min.z + dimension.h;
+		unsigned int maxX, maxY, maxZ;
+
+		switch (rotation) {
+		default:
+			maxX = min.x + dimension.l;
+			maxY = min.y + dimension.w;
+			maxZ = min.z + dimension.h;
+			break;
+
+		case Rotation::LengthHeightWidth:
+			maxX = min.x + dimension.l;
+			maxY = min.y + dimension.h;
+			maxZ = min.z + dimension.w;
+			break;
+
+		case Rotation::WidthLengthHeight:
+			maxX = min.x + dimension.w;
+			maxY = min.y + dimension.l;
+			maxZ = min.z + dimension.h;
+			break;
+
+		case Rotation::WidthHeightLength:
+			maxX = min.x + dimension.w;
+			maxY = min.y + dimension.h;
+			maxZ = min.z + dimension.l;
+			break;
+
+
+		case Rotation::HeightLengthWidth:
+			maxX = min.x + dimension.h;
+			maxY = min.y + dimension.l;
+			maxZ = min.z + dimension.w;
+			break;
+
+		case Rotation::HeightWidthLength:
+			maxX = min.x + dimension.h;
+			maxY = min.y + dimension.w;
+			maxZ = min.z + dimension.l;
+			break;
+
+		}
+
 		max = Point(maxX, maxY, maxZ);
 	}
 

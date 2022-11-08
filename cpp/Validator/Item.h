@@ -6,6 +6,8 @@
 #include <set>
 
 namespace validator {
+	enum class Rotation { none, WidthLengthHeight, WidthHeightLength, LengthHeightWidth, HeightLengthWidth, HeightWidthLength };
+
 	/**
 	* The type Item.
 	*/
@@ -21,7 +23,7 @@ namespace validator {
 		 * @param rotated     the rotation flag
 		 * @param type        the ItemType
 		 */
-		Item(const int id, const int customer_id, const bool rotated, const ItemType& type);
+		Item(const int id, const int customer_id, const Rotation& rotation, const ItemType& type);
 		Item();
 
 		/** Unique Id */
@@ -33,8 +35,8 @@ namespace validator {
 		/** Customer Id */
 		unsigned int customer_id;
 
-		/** Rotation Flag (1: rotated (l = w, w = l)) */
-		bool		 rotated;
+		/** Rotation status */
+		Rotation	rotation;
 
 		/* contains length, width, height*/
 		Dimension dimension;

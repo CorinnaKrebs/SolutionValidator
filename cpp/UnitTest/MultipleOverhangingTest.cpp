@@ -23,10 +23,10 @@ namespace LoadingConstraints {
 			ItemType typeHigh  (2, dim, dim, 2 * dim,    0, false, 0);
 			ItemType typeTop   (3, dim, 2 * dim +1, dim, 0, false, 0);
 
-			Item itemNormal1(0, 1, 0, typeNormal);
-			Item itemNormal2(1, 1, 0, typeNormal);
-			Item itemHigh   (2, 1, 0, typeHigh);
-			Item itemTop    (3, 1, 0, typeTop);
+			Item itemNormal1(0, 1, Rotation::none, typeNormal);
+			Item itemNormal2(1, 1, Rotation::none, typeNormal);
+			Item itemHigh   (2, 1, Rotation::none, typeHigh);
+			Item itemTop    (3, 1, Rotation::none, typeTop);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 4, 0, 0, 0, 0, 0);
@@ -70,9 +70,9 @@ namespace LoadingConstraints {
 			ItemType typeWide  (2, dim, w/alpha,           dim, 0, false, 0);
 			ItemType typeTop   (3, dim, w/(alpha * alpha), dim, 0, false, 0);
 
-			Item itemBottom(0, 1, 0, typeBottom);
-			Item itemWide  (1, 1, 0, typeWide);
-			Item itemTop   (2, 1, 0, typeTop);
+			Item itemBottom(0, 1, Rotation::none, typeBottom);
+			Item itemWide  (1, 1, Rotation::none, typeWide);
+			Item itemTop   (2, 1, Rotation::none, typeTop);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 3, 0, 0, 0, 0, 0);

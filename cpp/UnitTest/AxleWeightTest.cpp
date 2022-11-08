@@ -22,7 +22,7 @@ namespace LoadingConstraints {
 
 			ItemType type(1, dim, dim, dim, mass, false, 0);
 
-			Item item1(0, 1, 0, type);
+			Item item1(0, 1, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 2, 0, 0, 0, 0, 0);
@@ -50,7 +50,7 @@ namespace LoadingConstraints {
 
 			ItemType type(1, dim, dim, dim, mass, false, 0);
 
-			Item item1(0, 1, 0, type);
+			Item item1(0, 1, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 2, 0, 0, 0, 0, 0);
@@ -76,7 +76,7 @@ namespace LoadingConstraints {
 
 			ItemType type(1, dim, dim, dim, mass, false, 0);
 
-			Item item1(0, 1, 0, type);
+			Item item1(0, 1, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 2, 0, 0, 0, 0, 0);

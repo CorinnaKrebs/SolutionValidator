@@ -14,8 +14,8 @@ namespace LoadingConstraints {
 		TEST_METHOD(InfeasiblePositions) {
 			ItemType type(1, dim, dim, dim, 0, false, 0);
 
-			Item item1(0, 1, 0, type);
-			Item item2(1, 2, 0, type);
+			Item item1(0, 1, Rotation::none, type);
+			Item item2(1, 2, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer1(1, 0, 0, 1, 0, 0, 0, 0, 0);
@@ -58,9 +58,9 @@ namespace LoadingConstraints {
 			ItemType typeHigh  (2,     dim,   dim, 2 * dim,   0, false, 0);
 			ItemType typeLong  (3, 2 * dim,   dim,     dim,   0, false, 0);
 
-			Item itemC1(0, 1, 0, typeNormal);
-			Item itemC2High(1, 2, 0, typeHigh);
-			Item itemC2Long(2, 2, 0, typeLong);
+			Item itemC1(0, 1, Rotation::none, typeNormal);
+			Item itemC2High(1, 2, Rotation::none, typeHigh);
+			Item itemC2Long(2, 2, Rotation::none, typeLong);
 
 			// Instance Creation
 			Customer customer1(1, 0, 0, 1, 0, 0, 0, 0, 0);
@@ -98,8 +98,8 @@ namespace LoadingConstraints {
 		TEST_METHOD(FeasiblePosition) {
 			ItemType type(1, dim, dim, dim, 0, false, 0);
 
-			Item itemC1(0, 1, 0, type);
-			Item itemC2(1, 2, 0, type);
+			Item itemC1(0, 1, Rotation::none, type);
+			Item itemC2(1, 2, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer1(1, 0, 0, 1, 0, 0, 0, 0, 0);

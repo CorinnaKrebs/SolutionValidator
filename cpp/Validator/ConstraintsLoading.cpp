@@ -457,7 +457,7 @@ bool validator::ConstraintsLoading::checkAxleWeights(Item& item, Tour& tour, con
 
 		// Calculate Item's Force
 		const double item_F = item.mass * g;
-		const double length = !item.rotated ? item.dimension.l : item.dimension.w;
+		const double length = item.max.x - item.min.x;
 		double s = 0;
 
 		long force_rear_axle, force_front_axle, force_trailer_axle = 0;
@@ -531,7 +531,7 @@ bool validator::ConstraintsLoading::checkBalancedLoading(Item& item, Tour& tour,
 		}
 		// Distribute Mass
 		else {
-			const double width = !item.rotated ? item.dimension.w : item.dimension.l;
+			const double width = item.max.y - item.min.y;;
 			const double left_area = (W_half - item.min.y) * width;
 			const double part = left_area / ((double) item.dimension.w * item.dimension.l);
 			const double mass_left = part * item.mass;

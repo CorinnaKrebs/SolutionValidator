@@ -16,10 +16,10 @@ namespace LoadingConstraints {
 			ItemType type(1, dim, dim, dim, 0, false, 0);
 			ItemType typeLong(1, 1.25 * dim, dim, dim, 0, false, 0);
 
-			Item item1(0, 1, 0, type);
-			Item item2(1, 1, 0, type);
-			Item item3(2, 1, 0, typeLong);
-			Item item4(3, 1, 0, type);
+			Item item1(0, 1, Rotation::none, type);
+			Item item2(1, 1, Rotation::none, type);
+			Item item3(2, 1, Rotation::none, typeLong);
+			Item item4(3, 1, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 4, 0, 0, 0, 0, 0);
@@ -64,10 +64,10 @@ namespace LoadingConstraints {
 			ItemType type(1, dim, dim, dim, 0, false, 0);
 			ItemType typeLong(1, 1.25 * dim, dim, dim, 0, false, 0);
 
-			Item item1(0, 1, 0, type);
-			Item item2(1, 1, 0, type);
-			Item item3(2, 1, 0, type);
-			Item item4(3, 1, 0, typeLong);
+			Item item1(0, 1, Rotation::none, type);
+			Item item2(1, 1, Rotation::none, type);
+			Item item3(2, 1, Rotation::none, type);
+			Item item4(3, 1, Rotation::none, typeLong);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 4, 0, 0, 0, 0, 0);

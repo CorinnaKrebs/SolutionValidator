@@ -140,7 +140,7 @@ void validator::Write::solutionFile(const std::string path, Solution& solution, 
 			outputFile << "CustId\tId\tTypeId\tRotated\tx\ty\tz\tLength\tWidth\tHeight\tmass\tFragility\tLoadBearingStrength" << std::endl;
 			for (const auto& itemId : tour.item_ids) {
 				auto& item = instance.items.at(itemId);
-				outputFile << std::to_string(item.customer_id) << "\t" << itemId << "\t" << std::to_string(item.type_id) << "\t" << std::to_string(item.rotated) << "\t";
+				outputFile << std::to_string(item.customer_id) << "\t" << itemId << "\t" << std::to_string(item.type_id) << "\t" << static_cast<int>(item.rotation) << "\t";
 				outputFile << std::to_string(item.min.x) << "\t" << std::to_string(item.min.y) << "\t" << std::to_string(item.min.z) << "\t" << std::to_string(item.dimension.l) << "\t" << std::to_string(item.dimension.w) << "\t" << std::to_string(item.dimension.h) << "\t";
 				outputFile << std::fixed << std::setprecision(2) << item.mass << "\t" << std::to_string(item.fragility) << "\t\t";
 				outputFile << std::fixed << std::setprecision(6) << item.lbs << std::endl;

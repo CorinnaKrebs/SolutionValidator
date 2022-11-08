@@ -12,7 +12,7 @@ namespace LoadingConstraints
 	public:
 		
 		TEST_METHOD(ItemOverlappingVehicle) {
-			Item item(1, 1, 0, ItemType(1, dim + 1, dim, dim, 0, 0, 0));
+			Item item(1, 1, Rotation::none, ItemType(1, dim + 1, dim, dim, 0, 0, 0));
 			item.setPosition(Point(0, 0, 0));
 
 			Vehicle vehicle(dim, dim, dim, 0, 0, 0, 0, 0, 0);
@@ -20,7 +20,7 @@ namespace LoadingConstraints
 		}
 
 		TEST_METHOD(ItemNotOverlapping) {
-			Item item(1, 1, 0, ItemType(1, dim, dim, dim, 0, 0, 0));
+			Item item(1, 1, Rotation::none, ItemType(1, dim, dim, dim, 0, 0, 0));
 			item.setPosition(Point(0, 0, 0));
 
 			Vehicle vehicle(dim, dim, dim, 0, 0, 0, 0, 0, 0);

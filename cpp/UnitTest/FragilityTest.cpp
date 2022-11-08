@@ -17,8 +17,8 @@ namespace LoadingConstraints {
 			ItemType typeNormal (1,  dim, dim, dim, 0, false, 0);
 			ItemType typeFragile(2,  dim, dim, dim, 0, true, 0);
 
-			Item itemFragile(0, 1, 0, typeFragile);
-			Item itemNormal (1, 1, 0, typeNormal);
+			Item itemFragile(0, 1, Rotation::none, typeFragile);
+			Item itemNormal (1, 1, Rotation::none, typeNormal);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 2, 0, 0, 0, 0, 0);
@@ -50,10 +50,10 @@ namespace LoadingConstraints {
 			ItemType typeNormal(1,  dim, dim, dim, 0,  false, 0);
 			ItemType typeFragile(2, dim, dim, dim, 0, true, 0);
 
-			Item itemNormal1 (0, 1, 0, typeNormal);
-			Item itemNormal2 (1, 1, 0, typeNormal);
-			Item itemFragile1(2, 1, 0, typeFragile);
-			Item itemFragile2(3, 1, 0, typeFragile);
+			Item itemNormal1 (0, 1, Rotation::none, typeNormal);
+			Item itemNormal2 (1, 1, Rotation::none, typeNormal);
+			Item itemFragile1(2, 1, Rotation::none, typeFragile);
+			Item itemFragile2(3, 1, Rotation::none, typeFragile);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 4, 0, 0, 0, 0, 0);

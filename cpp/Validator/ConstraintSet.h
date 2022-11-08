@@ -5,14 +5,15 @@ namespace validator {
 	enum class VerticalStability { none, MinimalSupport, MultipleOverhanging, TopOverhanging, StaticStability, StaticStabilityRamos, StaticStabilityMack };
 	enum class Stacking { none, Fragility, LBSSimple, LBSComplete };
 
+
 	/**
 	* The type Constraint set.
 	*/
 	class ConstraintSet {
 	public:
-		ConstraintSet(const bool rotation, const bool load_capacity, const UnloadingSequence& uSequence, const VerticalStability& vStability, const Stacking& stacking, const bool reachability, const bool axle_weights, const bool balanced_loading, 
+		ConstraintSet(const bool rotation, const bool load_capacity, const UnloadingSequence& uSequence, const VerticalStability& vStability, const Stacking& stacking, const bool reachability, const bool axle_weights, const bool balanced_loading,
 			const float alpha, const unsigned int lambda, const float balanced_part, const bool time_windows, const bool split_delivery)
-			: rotation(rotation), load_capacity(load_capacity), uSequence(uSequence), vStability(vStability), stacking(stacking), reachability(reachability), axle_weights(axle_weights), balanced_loading(balanced_loading), 
+			: rotation(rotation), load_capacity(load_capacity), uSequence(uSequence), vStability(vStability), stacking(stacking), reachability(reachability), axle_weights(axle_weights), balanced_loading(balanced_loading),
 			alpha(alpha), lambda(lambda), balanced_part(balanced_part), time_windows(time_windows), split_delivery(split_delivery) {}
 
 

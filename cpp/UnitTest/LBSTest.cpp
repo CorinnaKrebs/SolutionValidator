@@ -23,9 +23,9 @@ namespace LoadingConstraints {
 			ItemType typeLong  (2, dim, 2* dim, dim, mass, false, 2.0);
 
 			// Bottom
-			Item itemBottomLeft  (0, 1, 0, typeNormal);
-			Item itemBottomRight (1, 1, 0, typeNormal);
-			Item itemTop         (2, 1, 0, typeLong);
+			Item itemBottomLeft  (0, 1, Rotation::none, typeNormal);
+			Item itemBottomRight (1, 1, Rotation::none, typeNormal);
+			Item itemTop         (2, 1, Rotation::none, typeLong);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 3, 0, 0, 0, 0, 0);
@@ -74,16 +74,16 @@ namespace LoadingConstraints {
 			ItemType type(1, dim, dim, dim, 2, false, 1.0);
 
 			// Bottom
-			Item itemBottomLeft  (0, 1, 0, type);
-			Item itemBottomCenter(1, 1, 0, type);
-			Item itemBottomRight (2, 1, 0, type);
+			Item itemBottomLeft  (0, 1, Rotation::none, type);
+			Item itemBottomCenter(1, 1, Rotation::none, type);
+			Item itemBottomRight (2, 1, Rotation::none, type);
 
 			// Second Row
-			Item itemCenterLeft  (3, 1, 0, type);
-			Item itemCenterRight (4, 1, 0, type);
+			Item itemCenterLeft  (3, 1, Rotation::none, type);
+			Item itemCenterRight (4, 1, Rotation::none, type);
 
 			// Top Row
-			Item itemTop(5, 1, 0, type);
+			Item itemTop(5, 1, Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 5, 0, 0, 0, 0, 0);
@@ -139,16 +139,16 @@ namespace LoadingConstraints {
 			ItemType type(1, dim, dim, dim, 2, false, 1.0);
 
 			// Bottom
-			Item itemBottomLeft(0, 1, 0, type);
-			Item itemBottomCenter(1, 1, 0, type);
-			Item itemBottomRight(2, 1, 0, type);
+			Item itemBottomLeft(0, 1,	Rotation::none, type);
+			Item itemBottomCenter(1, 1, Rotation::none, type);
+			Item itemBottomRight(2, 1,  Rotation::none, type);
 
 			// Second Row
-			Item itemCenterLeft(3, 1, 0, type);
-			Item itemCenterRight(4, 1, 0, type);
+			Item itemCenterLeft(3, 1,	Rotation::none, type);
+			Item itemCenterRight(4, 1,	Rotation::none, type);
 
 			// Top Row
-			Item itemTop(5, 1, 0, type);
+			Item itemTop(5, 1,			Rotation::none, type);
 
 			// Instance Creation
 			Customer customer(1, 0, 0, 5, 0, 0, 0, 0, 0);

@@ -14,12 +14,12 @@ namespace RoutingConstraints {
 			ItemType type1(1, 0, 0, 0, 0, false, 0);
 			ItemType type2(2, 0, 0, 0, 0, false, 0);
 
-			Item item1(0, 1, 0, type1);
-			Item item2(1, 1, 0, type1);
-			Item item3(2, 1, 0, type1);
+			Item item1(0, 1, Rotation::none, type1);
+			Item item2(1, 1, Rotation::none, type1);
+			Item item3(2, 1, Rotation::none, type1);
 
-			Item item4(3, 1, 0, type2);
-			Item item5(4, 1, 0, type2);
+			Item item4(3, 1, Rotation::none, type2);
+			Item item5(4, 1, Rotation::none, type2);
 
 			// Instance Creation
 			Customer depot(0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -54,13 +54,13 @@ namespace RoutingConstraints {
 			ItemType type1(1, 0, 0, 0, 0, false, 0);
 			ItemType type2(2, 0, 0, 0, 0, false, 0);
 
-			Item item1(0, 1, 0, type1);
-			Item item2(1, 1, 0, type1);
-			Item item3(2, 1, 0, type1);
-			Item item4(3, 1, 0, type2);
+			Item item1(0, 1, Rotation::none, type1);
+			Item item2(1, 1, Rotation::none, type1);
+			Item item3(2, 1, Rotation::none, type1);
+			Item item4(3, 1, Rotation::none, type2);
 
-			Item item5(4, 2, 0, type2);
-			Item item6(5, 2, 0, type2);
+			Item item5(4, 2, Rotation::none, type2);
+			Item item6(5, 2, Rotation::none, type2);
 
 			// Instance Creation
 			Customer depot(0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -103,12 +103,12 @@ namespace RoutingConstraints {
 			ItemType type1(1, 0, 0, 0, 0, false, 0);
 			ItemType type2(2, 0, 0, 0, 0, false, 0);
 
-			Item item1(0, 1, 0, type1);
-			Item item2(1, 1, 0, type1);
-			Item item3(2, 1, 0, type1);
+			Item item1(0, 1, Rotation::none, type1);
+			Item item2(1, 1, Rotation::none, type1);
+			Item item3(2, 1, Rotation::none, type1);
 
-			Item item4(3, 1, 0, type2);
-			Item item5(4, 1, 0, type2);
+			Item item4(3, 1, Rotation::none, type2);
+			Item item5(4, 1, Rotation::none, type2);
 
 			// Instance Creation
 			Customer depot(0, 0, 0, 0, 0, 0, 0, 0, 0);
